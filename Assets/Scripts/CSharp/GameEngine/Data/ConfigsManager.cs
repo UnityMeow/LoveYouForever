@@ -24,7 +24,6 @@ namespace LoveYouForever
         public enum Type
         {
             UIDataMain,
-            UIDataTest
         }
 
         private Dictionary<Type, ConfigsBase> configsDic = new Dictionary<Type, ConfigsBase>();
@@ -35,9 +34,8 @@ namespace LoveYouForever
         public void Load()
         {
             LoadConfig<UIDataMainConfigs>("UIDataMain",Type.UIDataMain);
-            LoadConfig<UIDataTestConfigs>("UIDataTest", Type.UIDataTest);
-            //LoadConfig<UIDataMainConfigs>("UIDataMainConfigs", Type.UIDataMain);
-            //LoadConfig<UIDataMainConfigs>("UIDataMainConfigs", Type.UIDataMain);
+            //LoadConfig<UIDataMainConfigs>("UIDataMain", Type.UIDataMain);
+            //LoadConfig<UIDataMainConfigs>("UIDataMain", Type.UIDataMain);
         }
 
         /// <summary>
