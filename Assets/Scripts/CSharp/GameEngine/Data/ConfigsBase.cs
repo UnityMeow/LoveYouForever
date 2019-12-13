@@ -1,6 +1,6 @@
 ﻿#region --------------------------文件信息--------------------------------------
 /******************************************************************
-** 文件名:	UILoading
+** 文件名:	ConfigsBase
 ** 版  权:	(C)  
 ** 创建人:  Unity喵
 ** 日  期:	
@@ -13,11 +13,10 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class UILoading : UIBase
+    /// <summary>
+    /// 配置文件基类
+    /// </summary>
+	public class ConfigsBase : ScriptableObject
     {
-        public override void Destroy()
-        {
-            UIManager.Instance.ShowPanel<UIMain>("", "");
-        }
-    }
+	}
 }

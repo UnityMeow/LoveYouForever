@@ -40,8 +40,8 @@ namespace LoveYouForever
         public void StartGame()
         {
             // 资源加载完成
-            // 显示Loading界面
-            UIManager.Instance.ShowPanel<UILoading>("","");
+            // 显示主页界面
+            
         }
     }
 }

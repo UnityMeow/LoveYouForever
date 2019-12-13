@@ -55,7 +55,7 @@ namespace LoveYouForever
             List<Object> pool = m_poolList[name];
             //池中无对象
             if (pool.Count == 0)
-                return ResLoadManager.Instance.LoadObject(pathName, resName, bagName);
+                return ResLoadManager.Instance.LoadObject<Object>(pathName, resName, bagName);
             //取第一个
             Object obj = pool[0];
             //从池子中移除

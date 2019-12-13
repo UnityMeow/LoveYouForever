@@ -42,7 +42,8 @@ namespace LoveYouForever
             }
         }
         //资源加载
-        public Object LoadObject(string pathName, string resName, string bagName = "")
+        public T LoadObject<T>(string pathName, string resName, string bagName = "")
+            where T : Object
         {
             if (IsLoadAssetBundle)
             {
@@ -52,7 +53,7 @@ namespace LoveYouForever
             else
             {
                 //通过路径加载资源
-                Object go = Resources.Load<Object>(pathName + "/" + resName);
+                T go = Resources.Load<T>(pathName + "/" + resName);
                 if (go == null)
                 {
                     GlobalUtil.Log("CResLoadMgr: Resources加载路径加载失败");

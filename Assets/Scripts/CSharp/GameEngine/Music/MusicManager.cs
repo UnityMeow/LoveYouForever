@@ -55,7 +55,7 @@ namespace LoveYouForever
             }
             if (m_bgmAS.isPlaying)
                 m_bgmAS.Stop();
-            m_bgmAS.clip = ResLoadManager.Instance.LoadObject(m_bgmPath, name, m_bgmBagName) as AudioClip;
+            m_bgmAS.clip = ResLoadManager.Instance.LoadObject<Object>(m_bgmPath, name, m_bgmBagName) as AudioClip;
             m_bgmAS.Play();
         }
         //停止背景音乐
@@ -81,7 +81,7 @@ namespace LoveYouForever
                     GameObject.DontDestroyOnLoad(go);
                 }
                 AudioSource tmp = GameObject.Find("Sound").AddComponent<AudioSource>();
-                tmp.clip = ResLoadManager.Instance.LoadObject(m_soundPath, name, m_soundBagName) as AudioClip;
+                tmp.clip = ResLoadManager.Instance.LoadObject<Object>(m_soundPath, name, m_soundBagName) as AudioClip;
                 tmp.name = name;
                 m_soundList.Add(name, tmp);
             }

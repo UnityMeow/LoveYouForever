@@ -67,7 +67,7 @@ namespace LoveYouForever
         {
             if (!IsHavePool(poolName))
             {
-                return ResLoadManager.Instance.LoadObject(pathName, resName, bagName);
+                return ResLoadManager.Instance.LoadObject<Object>(pathName, resName, bagName);
             }
             return _chunkList[poolName].GetObj();
         }

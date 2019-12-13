@@ -78,19 +78,19 @@ namespace LoveYouForever
         /// <summary>
         /// 显示面板
         /// </summary>
-        public virtual void Show(UnityAction action = null)
+        public virtual void Show()
         { }
 
         /// <summary>
         /// 隐藏面板
         /// </summary>
-        public virtual void Hide(UnityAction action = null)
+        public virtual void Hide()
         { }
 
         /// <summary>
         /// 销毁面板
         /// </summary>
-        public virtual void Destroy(UnityAction action = null)
+        public virtual void Destroy()
         { }
 
         /// <summary>

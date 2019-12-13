@@ -18,15 +18,16 @@ namespace LoveYouForever
         protected override void OnInit()
         {
             base.OnInit();
-            DontDestroyOnLoad(this);
             //注册信息
         }
 
         protected override void OnStart()
         {
             base.OnStart();
+            DontDestroyOnLoad(this);
             //Loading资源加载
-
+            //UIManager.Instance.ShowPanel<UILoading>("", "");
+            
         }
     }
 }
