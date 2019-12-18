@@ -13,16 +13,16 @@ namespace LoveYouForever
 	public class InstanceNull<T>
         where T : new()
     {
-        protected static T m_instance;
+        protected static T instance;
         public static T Instance
         {
             get
             {
-                if (m_instance == null)
+                if (instance == null)
                 {
-                    m_instance = new T();
+                    instance = new T();
                 }
-                return m_instance;
+                return instance;
             }
         }
         protected InstanceNull()

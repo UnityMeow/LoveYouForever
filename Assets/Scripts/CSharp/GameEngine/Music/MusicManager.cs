@@ -19,61 +19,85 @@ namespace LoveYouForever
 {
 	public class MusicManager : InstanceNull<MusicManager>
     {
-        string m_bgmPath = "";
-        string m_soundPath = "";
-        string m_soundBagName = "";
-        string m_bgmBagName = "";
-        AudioSource m_bgmAS = null;
-        Dictionary<string, AudioSource> m_soundList = new Dictionary<string, AudioSource>();
-        //改变背景音乐大小
+        string bgmPath = "";
+        string soundPath = "";
+        string soundBagName = "";
+        string bgmBagName = "";
+        AudioSource bgmAS;
+        Dictionary<string, AudioSource> soundList = new Dictionary<string, AudioSource>();
+
+        /// <summary>
+        /// 改变背景音乐大小
+        /// </summary>
+        /// <param name="value"></param>
         public void ChangeBGMValue(float value)
         {
-            if (m_bgmAS == null)
+            if (bgmAS == null)
                 return;
-            m_bgmAS.volume = value;
+            bgmAS.volume = value;
         }
-        //改变音效音乐大小
+        
+        /// <summary>
+        /// 改变音效音乐大小
+        /// </summary>
+        /// <param name="value"></param>
         public void ChangeSoundValue(float value)
         {
-            if (m_soundList.Count == 0)
+            if (soundList.Count == 0)
                 return;
-            Dictionary<string, AudioSource>.Enumerator enumerator = m_soundList.GetEnumerator();
+            Dictionary<string, AudioSource>.Enumerator enumerator = soundList.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                m_soundList[enumerator.Current.Key].volume = value;
+                soundList[enumerator.Current.Key].volume = value;
             }
         }
-        //播放背景音乐
+        
+        /// <summary>
+        /// 播放背景音乐
+        /// </summary>
+        /// <param name="name"></param>
         public void PlayBGM(string name)
         {
-            if (m_bgmAS == null)
+            if (bgmAS == null)
             {
                 GameObject BGM = new GameObject("BGM");
                 GameObject.DontDestroyOnLoad(BGM);
-                m_bgmAS = BGM.AddComponent<AudioSource>();
-                m_bgmAS.loop = true;
+                bgmAS = BGM.AddComponent<AudioSource>();
+                bgmAS.loop = true;
             }
-            if (m_bgmAS.isPlaying)
-                m_bgmAS.Stop();
-            m_bgmAS.clip = ResLoadManager.Instance.LoadObject<Object>(m_bgmPath, name, m_bgmBagName) as AudioClip;
-            m_bgmAS.Play();
+            if (bgmAS.isPlaying)
+                bgmAS.Stop();
+            // TODO: 待修改
+            bgmAS.clip = ResLoadManager.Instance.LoadObject<AudioClip>(bgmPath, name, bgmBagName);
+            bgmAS.Play();
         }
-        //停止背景音乐
+        
+        /// <summary>
+        /// 停止背景音乐
+        /// </summary>
         public void StopBGM()
         {
-            if (m_bgmAS != null && m_bgmAS.isPlaying)
-                m_bgmAS.Stop();
+            if (bgmAS != null && bgmAS.isPlaying)
+                bgmAS.Stop();
         }
-        //暂停背景音乐
+        
+        /// <summary>
+        /// 暂停背景音乐
+        /// </summary>
         public void PauseBGM()
         {
-            if (m_bgmAS != null && m_bgmAS.isPlaying)
-                m_bgmAS.Pause();
+            if (bgmAS != null && bgmAS.isPlaying)
+                bgmAS.Pause();
         }
-        //播放音效音乐
+        
+        /// <summary>
+        /// 播放音效音乐
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="isLoop"></param>
         public void PlaySound(string name, bool isLoop = false)
         {
-            if (!m_soundList.ContainsKey(name))
+            if (!soundList.ContainsKey(name))
             {
                 if (GameObject.Find("Sound") == null)
                 {
@@ -81,28 +105,36 @@ namespace LoveYouForever
                     GameObject.DontDestroyOnLoad(go);
                 }
                 AudioSource tmp = GameObject.Find("Sound").AddComponent<AudioSource>();
-                tmp.clip = ResLoadManager.Instance.LoadObject<Object>(m_soundPath, name, m_soundBagName) as AudioClip;
+                // TODO：待修改
+                tmp.clip = ResLoadManager.Instance.LoadObject<AudioClip>(soundPath, name, soundBagName);
                 tmp.name = name;
-                m_soundList.Add(name, tmp);
+                soundList.Add(name, tmp);
             }
-            m_soundList[name].loop = isLoop;
-            m_soundList[name].Play();
+            soundList[name].loop = isLoop;
+            soundList[name].Play();
         }
-        //停止音效音乐
+        
+        /// <summary>
+        /// 停止音效音乐
+        /// </summary>
+        /// <param name="name"></param>
         public void StopSound(string name)
         {
-            if (!m_soundList.ContainsKey(name))
+            if (!soundList.ContainsKey(name))
                 return;
-            if (m_soundList[name].isPlaying)
-                m_soundList[name].Stop();
+            if (soundList[name].isPlaying)
+                soundList[name].Stop();
         }
-        //停止所有音效
+        
+        /// <summary>
+        /// 停止所有音效
+        /// </summary>
         public void StopAllSound()
         {
-            Dictionary<string, AudioSource>.Enumerator enumerator = m_soundList.GetEnumerator();
+            Dictionary<string, AudioSource>.Enumerator enumerator = soundList.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                m_soundList[enumerator.Current.Key].Stop();
+                soundList[enumerator.Current.Key].Stop();
             }
         }
     }

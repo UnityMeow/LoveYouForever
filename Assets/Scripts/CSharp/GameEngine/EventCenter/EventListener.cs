@@ -5,10 +5,6 @@
 ** 创建人:  Unity喵
 ** 日  期:	
 ** 描  述: 	
-**************************** 修改记录 ******************************
-** 修改人: 
-** 日  期: 
-** 描  述: 
 *******************************************************************/
 #endregion
 using System.Collections;
@@ -18,26 +14,28 @@ using UnityEngine;
 namespace LoveYouForever
 {
 	public class EventListener
-    {
-        //监听事件的对象
-        object m_listener;
-        //委托
-        EventCenterFunction m_callback;
-        public EventListener(object listener, EventCenterFunction callback)
-        {
-            m_listener = listener;
-            m_callback = callback;
-        }
-        public object listener
-        {
-            get { return m_listener; }
-            set { m_listener = value; }
-        }
-        public EventCenterFunction function
-        {
-            get { return m_callback; }
-            set { m_callback = value; }
-        }
+	{
+		/// <summary>
+		/// 监听事件对象
+		/// </summary>
+		public object Listener { get; }
 
-    }
+		/// <summary>
+		/// 回调
+		/// </summary>
+		public EventCallBack CallBack { get; }
+
+		
+		/// <summary>
+		/// 构造
+		/// </summary>
+		/// <param name="listener"></param>
+		/// <param name="callback"></param>
+		public EventListener(object listener, EventCallBack callback)
+		{
+			Listener = listener;
+			CallBack = callback;
+		}
+		
+	}
 }

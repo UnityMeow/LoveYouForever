@@ -27,7 +27,6 @@ namespace LoveYouForever
             DontDestroyOnLoad(this);
             //Loading资源加载
             //UIManager.Instance.ShowPanel<UILoading>("", "");
-            
         }
     }
 }

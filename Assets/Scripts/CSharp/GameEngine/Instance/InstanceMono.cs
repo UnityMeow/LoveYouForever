@@ -18,12 +18,12 @@ namespace LoveYouForever
 	public class InstanceMono<T> : MonoBehaviour
         where T : InstanceMono<T>
     {
-        static T m_instance;
+        static T instance;
         public static T Instance
         {
             get
             {
-                if (m_instance == null)
+                if (instance == null)
                 {
                     GameObject go = GameObject.Find("InstanceMgrMono");
                     if (go == null)
@@ -31,9 +31,9 @@ namespace LoveYouForever
                         go = new GameObject("InstanceMgrMono");
                         DontDestroyOnLoad(go);
                     }
-                    m_instance = go.AddComponent<T>();
+                    instance = go.AddComponent<T>();
                 }
-                return m_instance;
+                return instance;
             }
         }
     }

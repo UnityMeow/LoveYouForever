@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Coconut\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Coconut\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_LoveYouForever.-87493503.00" t="ExcludeRecursive" />
+    <e p="H:\GitHub\LoveYouForever" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="ConsolePro" t="Include">
+            <e p="ConsoleProDebug.cs" t="Include" />
+            <e p="Remote" t="Include">
+              <e p="ConsoleProRemoteServer.cs" t="Include" />
+              <e p="LiteNetLib" t="Include">
+                <e p="FastBitConverter.cs" t="Include" />
+                <e p="INetEventListener.cs" t="Include" />
+                <e p="NatPunchModule.cs" t="Include" />
+                <e p="NetConstants.cs" t="Include" />
+                <e p="NetDataReader.cs" t="Include" />
+                <e p="NetDataWriter.cs" t="Include" />
+                <e p="NetDebug.cs" t="Include" />
+                <e p="NetEndPoint.cs" t="Include" />
+                <e p="NetManager.cs" t="Include" />
+                <e p="NetPacket.cs" t="Include" />
+                <e p="NetPacketPool.cs" t="Include" />
+                <e p="NetPeer.cs" t="Include" />
+                <e p="NetPeerCollection.cs" t="Include" />
+                <e p="NetSerializer.cs" t="Include" />
+                <e p="NetSocket.cs" t="Include" />
+                <e p="NetThread.cs" t="Include" />
+                <e p="NetUtils.cs" t="Include" />
+                <e p="NtpSyncModule.cs" t="Include" />
+                <e p="ReliableChannel.cs" t="Include" />
+                <e p="SequencedChannel.cs" t="Include" />
+                <e p="SimpleChannel.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
+          <e p="RainbowAssets" t="Include">
+            <e p="!Core" t="Include">
+              <e p="NOTICES.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Sirenix" t="Include">
+            <e p="Assemblies" t="Include">
+              <e p="link.xml" t="Include" />
+              <e p="Sirenix.OdinInspector.Attributes.xml" t="Include" />
+              <e p="Sirenix.OdinInspector.Editor.xml" t="Include" />
+              <e p="Sirenix.Serialization.Config.xml" t="Include" />
+              <e p="Sirenix.Utilities.Editor.xml" t="Include" />
+              <e p="Sirenix.Utilities.xml" t="Include" />
+            </e>
+            <e p="Odin Inspector" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="AssemblyImportSettingsAutomation.cs" t="Include" />
+                  <e p="BuildAOTAutomation.cs" t="Include" />
+                  <e p="EnsureOdinInspectorDefine.cs" t="Include" />
+                  <e p="FixBrokenUnityObjectWrapperDrawer.cs" t="Include" />
+                  <e p="SyncListDrawer.cs" t="Include" />
+                  <e p="SyncVarAttributeDrawer.cs" t="Include" />
+                  <e p="Vector2IntMinMaxAttributeDrawer.cs" t="Include" />
+                  <e p="VectorIntDrawers.cs" t="Include" />
+                  <e p="VectorIntPropertyResolvers.cs" t="Include" />
+                </e>
+                <e p="SerializedNetworkBehaviour.cs" t="Include" />
+                <e p="VectorIntFormatters.cs" t="Include" />
+              </e>
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CSharp" t="Include">
+            <e p="Bootstrap.cs" t="Include" />
+            <e p="GameData" t="Include">
+              <e p="UIData" t="Include">
+                <e p="UIDataMainConfigs.cs" t="Include" />
+              </e>
+            </e>
+            <e p="GameEngine" t="Include">
+              <e p="Anim" t="Include">
+                <e p="AnimSpriteManager.cs" t="Include" />
+              </e>
+              <e p="Data" t="Include">
+                <e p="ConfigsBase.cs" t="Include" />
+                <e p="ConfigsManager.cs" t="Include" />
+              </e>
+              <e p="EventCenter" t="Include">
+                <e p="EventListener.cs" t="Include" />
+                <e p="EventManager.cs" t="Include" />
+                <e p="EventType.cs" t="Include" />
+              </e>
+              <e p="Instance" t="Include">
+                <e p="InstanceMono.cs" t="Include" />
+                <e p="InstanceNull.cs" t="Include" />
+              </e>
+              <e p="MonoTool" t="Include">
+                <e p="GlobalMonoManager.cs" t="Include" />
+              </e>
+              <e p="Music" t="Include">
+                <e p="MusicManager.cs" t="Include" />
+              </e>
+              <e p="ObjectPool" t="Include">
+                <e p="Chunk.cs" t="Include" />
+                <e p="ChunkAllocator.cs" t="Include" />
+              </e>
+              <e p="Res" t="Include">
+                <e p="ResLoadManager.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="UIBase.cs" t="Include" />
+                <e p="UIManager.cs" t="Include" />
+              </e>
+              <e p="Util" t="Include">
+                <e p="CallBackUtil.cs" t="Include" />
+                <e p="GlobalUtil.cs" t="Include" />
+              </e>
+            </e>
+            <e p="GameEnry.cs" t="Include" />
+            <e p="Rocker.cs" t="Include" />
+            <e p="UI" t="Include">
+              <e p="UILoading.cs" t="Include" />
+              <e p="UIMain.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="LoveYouForever.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Sirenix.OdinInspector.CompatibilityLayer.csproj" t="IncludeRecursive" />
+      <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" t="IncludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

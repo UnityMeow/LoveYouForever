@@ -41,6 +41,7 @@ namespace LoveYouForever
                 _chunkList.Add(poolName, chunk);
             }
         }
+        
         /// <summary>
         /// 获取对象
         /// </summary>

@@ -49,28 +49,28 @@ namespace LoveYouForever
         /// <summary>
         /// 面板物品
         /// </summary>
-        Dictionary<string, GameObject> goList;
+        Dictionary<string, GameObject> itemList;
 
         public virtual void Init()
         {
-            goList = new Dictionary<string, GameObject>();
+            itemList = new Dictionary<string, GameObject>();
             showType = ShowTypeEnum.Normal;
             List<Transform> list = new List<Transform>();
             FindChild(transform, list);
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].tag == "Event")
+                if (list[i].CompareTag("Event"))
                 {
                     EventTrigger ET = list[i].gameObject.AddComponent<EventTrigger>();
                     if (ET.triggers.Count == 0)
                     {
                         ET.triggers = new List<EventTrigger.Entry>();
                     }
-                    goList.Add(list[i].name, list[i].gameObject);
+                    itemList.Add(list[i].name, list[i].gameObject);
                 }
-                else if (list[i].tag == "UIGO")
+                else if (list[i].CompareTag("UIGO"))
                 {
-                    goList.Add(list[i].name, list[i].gameObject);
+                    itemList.Add(list[i].name, list[i].gameObject);
                 }
             }
         }
@@ -102,9 +102,9 @@ namespace LoveYouForever
         protected T GetControl<T>(string name)
         where T : MonoBehaviour
         {
-            if (goList[name] == null)
+            if (itemList[name] == null)
                 return null;
-            return goList[name].GetComponent<T>();
+            return itemList[name].GetComponent<T>();
         }
 
         /// <summary>
@@ -114,9 +114,9 @@ namespace LoveYouForever
         /// <returns></returns>
         public GameObject GetGameObject(string name)
         {
-            if (goList[name] == null)
+            if (itemList[name] == null)
                 return null;
-            return goList[name];
+            return itemList[name];
         }
 
         /// <summary>
@@ -127,15 +127,15 @@ namespace LoveYouForever
         /// <param name="callBack"></param>
         public void AddEventTrigger(string controlName, EventTriggerType type, UnityAction<BaseEventData> callBack)
         {
-            if (!goList.ContainsKey(controlName))
+            if (!itemList.ContainsKey(controlName))
                 return;
-            if (goList[controlName].gameObject.GetComponent<EventTrigger>() == null)
-                goList[controlName].AddComponent<EventTrigger>();
+            if (itemList[controlName].gameObject.GetComponent<EventTrigger>() == null)
+                itemList[controlName].AddComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.callback = new EventTrigger.TriggerEvent();
             entry.callback.AddListener(callBack);
             entry.eventID = type;
-            goList[controlName].GetComponent<EventTrigger>().triggers.Add(entry);
+            itemList[controlName].GetComponent<EventTrigger>().triggers.Add(entry);
         }
 
         /// <summary>
