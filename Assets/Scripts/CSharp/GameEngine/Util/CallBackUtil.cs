@@ -14,6 +14,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace LoveYouForever
 {
@@ -21,4 +22,8 @@ namespace LoveYouForever
     public delegate void EventCallBack();
     //无参数委托回调
     public delegate void CallBack();
+    /// <summary>
+    /// 资源加载回调
+    /// </summary>
+    public delegate void AssetHandleEvent(AsyncOperationHandle operationHandle);
 }
