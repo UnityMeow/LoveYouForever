@@ -13,6 +13,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -27,13 +28,23 @@ namespace LoveYouForever
         /// <summary>
         /// 不可释放资源
         /// </summary>
-        private static Dictionary<string, Dictionary<Type, AsyncOperationHandle>> staticAssetDic;
+        private static Dictionary<string, Dictionary<Type, AsyncOperationHandle>> staticAssetDic = new Dictionary<string, Dictionary<Type, AsyncOperationHandle>>();
         
         /// <summary>
         /// 可释放资源
         /// </summary>
-        private static Dictionary<string, Dictionary<Type, AsyncOperationHandle>> dynamicAssetDic;
-        
+        private static Dictionary<string, Dictionary<Type, AsyncOperationHandle>> dynamicAssetDic = new Dictionary<string, Dictionary<Type, AsyncOperationHandle>>();
+
+        /// <summary>
+        /// 根据不同类型载入资源
+        /// </summary>
+        private static Dictionary<Type, Func<string, bool, AsyncOperationHandle>> assetsTypeLoader =
+            new Dictionary<Type, Func<string, bool, AsyncOperationHandle>>
+            {
+                {typeof(Texture), (lable, releasable) => LoadAssetsAsync<Texture>(lable, releasable)},
+                {typeof(Sprite), (lable, releasable) => LoadAssetsAsync<Sprite>(lable, releasable)},
+            };
+
         /// <summary>
         /// 获取已加载的资源
         /// </summary>
@@ -52,7 +63,7 @@ namespace LoveYouForever
                 var resourceLocations = Addressables.LoadResourceLocationsAsync(key, type);
                 if (resourceLocations.Result != null)
                 {
-                    handle = Addressables.LoadAssetAsync<T>(resourceLocations.Result);
+                    handle = Addressables.LoadAssetAsync<T>(resourceLocations.Result[0]);
                     // 存储handle
                     addAssetHandle(key, type, handle);
                     Addressables.Release(resourceLocations);
@@ -94,6 +105,25 @@ namespace LoveYouForever
         }
 
         /// <summary>
+        /// 获取资源Handle
+        /// </summary>
+        private static Dictionary<Type, AsyncOperationHandle> getAssetHandle(string lable, Type type, bool releasable, out AsyncOperationHandle handle)
+        {
+            // 根据释放类型获取相应dic
+            var handlesDic = releasable ? dynamicAssetDic : staticAssetDic;
+            // 如果没有该lable资源handleDic 则新建一个
+            if (!handlesDic.TryGetValue(lable, out var typeHandleDic))
+            {
+                typeHandleDic = new Dictionary<Type, AsyncOperationHandle>();
+                handlesDic.Add(lable,typeHandleDic);
+            }
+            // 获取资源handle
+            typeHandleDic.TryGetValue(type, out handle);
+            // 返回资源类型HandleDic
+            return typeHandleDic;
+        }
+
+        /// <summary>
         /// 获取已加载资源Handle
         /// 首次读取为空
         /// </summary>
@@ -122,8 +152,32 @@ namespace LoveYouForever
         /// <returns></returns>
         public static AsyncOperationHandle LoadAssetsAsync(Type type, string lable, bool releasable = false)
         {
-            // TODO:待修改
-            return new AsyncOperationHandle();
+            return assetsTypeLoader[type].Invoke(lable, releasable);
+        }
+
+        /// <summary>
+        /// 异步加载多个资源
+        /// </summary>
+        /// <param name="lable"></param>
+        /// <param name="releasable"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        private static AsyncOperationHandle<IList<T>> LoadAssetsAsync<T>(string lable, bool releasable = false)
+        {
+            // 获取资源类型
+            var type = typeof(T);
+            // 获取资源类型Handle
+            var typeHandleDic = getAssetHandle(lable, type, releasable, out var handle);
+            // 是否不为空并具有相同版本的该句柄
+            if (!handle.IsValid())
+            {
+                // 加载资源
+                handle = Addressables.LoadAssetsAsync<T>(lable,null);
+                // 存储资源
+                typeHandleDic.Add(type,handle);
+            }
+
+            return handle.Convert<IList<T>>();
         }
     }
 }

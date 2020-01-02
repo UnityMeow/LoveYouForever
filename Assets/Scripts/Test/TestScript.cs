@@ -23,8 +23,7 @@ namespace LoveYouForever
 			// 添加资源配置
 			loader.AddLoadConfig(new AssetLoader.AssetLoadConfig[]
 			{
-				new AssetLoader.AssetLoadConfig{type = typeof(Texture),Label = ""}, 
-				new AssetLoader.AssetLoadConfig{type = typeof(GameObject),Label = ""}, 
+				new AssetLoader.AssetLoadConfig{type = typeof(Sprite),Label = "Test"},
 			});
 			// 开始加载
 			loader.StartLoad(onCompleted);
@@ -35,7 +34,7 @@ namespace LoveYouForever
 		/// </summary>
 		private void onCompleted()
 		{
-			AssetManager.GetAsset<Texture>("");
+			GetComponent<SpriteRenderer>().sprite = AssetManager.GetAsset<Sprite>("123");
 		}
 
 		private void Update()
