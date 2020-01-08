@@ -13,9 +13,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UI;
 
 namespace LoveYouForever
 {
@@ -43,6 +45,10 @@ namespace LoveYouForever
             {
                 {typeof(Texture), (lable, releasable) => LoadAssetsAsync<Texture>(lable, releasable)},
                 {typeof(Sprite), (lable, releasable) => LoadAssetsAsync<Sprite>(lable, releasable)},
+                {typeof(GameObject), (lable, releasable) => LoadAssetsAsync<GameObject>(lable, releasable)},
+                {typeof(ScriptableObject), (lable, releasable) => LoadAssetsAsync<ScriptableObject>(lable, releasable)},
+                {typeof(Text), (lable, releasable) => LoadAssetsAsync<Text>(lable, releasable)},
+                {typeof(TextAsset), (lable, releasable) => LoadAssetsAsync<TextAsset>(lable, releasable)},
             };
 
         /// <summary>
@@ -61,7 +67,7 @@ namespace LoveYouForever
             {
                 // 根据资源key 资源类型 获取资源定位
                 var resourceLocations = Addressables.LoadResourceLocationsAsync(key, type);
-                if (resourceLocations.Result != null)
+                if (resourceLocations.Result != null && resourceLocations.Result.Count > 0)
                 {
                     handle = Addressables.LoadAssetAsync<T>(resourceLocations.Result[0]);
                     // 存储handle
@@ -82,6 +88,12 @@ namespace LoveYouForever
             }
             
             return (T)handle.Result;
+        }
+
+        public static GameObject LoadPrefab(string key)
+        {
+            GameObject go = GetAsset<GameObject>(key + ".prefab");
+            return GlobalMonoManager.Instance.GoInstan(go);
         }
 
 

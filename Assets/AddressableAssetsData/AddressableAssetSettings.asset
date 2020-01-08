@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultGroup: c06b6805142081e489178f1e5ee1e17d
   m_BuildRemoteCatalog: 0
+  m_DisableCatalogUpdateOnStart: 0
   m_UniqueBundleIds: 0
   m_RemoteCatalogBuildPath:
     m_Id: 
@@ -64,6 +65,9 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Test
+    - UI
+    - Excel
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 0e2653712cc9f3144a647bc80a196cdb, type: 2}

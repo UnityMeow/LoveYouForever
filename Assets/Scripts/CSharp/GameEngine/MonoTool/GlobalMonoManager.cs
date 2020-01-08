@@ -11,6 +11,8 @@
 ** 描  述: 
 *******************************************************************/
 #endregion
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +31,12 @@ namespace LoveYouForever
         {
             eventFixedUpdate?.Invoke();
         }
+
+        public GameObject GoInstan(GameObject go)
+        {
+            return Instantiate(go);
+        }
+
         public void AddUpdateListener(CallBack function)
         {
             eventUpdate += function;

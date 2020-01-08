@@ -68,7 +68,7 @@ namespace LoveYouForever
             if (bgmAS.isPlaying)
                 bgmAS.Stop();
             // TODO: 待修改
-            bgmAS.clip = ResLoadManager.Instance.LoadObject<AudioClip>(bgmPath, name, bgmBagName);
+            bgmAS.clip = AssetManager.GetAsset<AudioClip>(bgmPath + name);
             bgmAS.Play();
         }
         
@@ -106,7 +106,7 @@ namespace LoveYouForever
                 }
                 AudioSource tmp = GameObject.Find("Sound").AddComponent<AudioSource>();
                 // TODO：待修改
-                tmp.clip = ResLoadManager.Instance.LoadObject<AudioClip>(soundPath, name, soundBagName);
+                tmp.clip = AssetManager.GetAsset<AudioClip>(soundPath + name);
                 tmp.name = name;
                 soundList.Add(name, tmp);
             }

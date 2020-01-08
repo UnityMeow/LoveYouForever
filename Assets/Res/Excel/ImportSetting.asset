@@ -26,11 +26,12 @@ MonoBehaviour:
     name: name
     isEnable: 0
     isArray: 0
-  - type: 1
+  - type: 0
     name: info
     isEnable: 0
     isArray: 0
-  excelFilePath: Assets/Resources/Excel/TestData.xlsx
+  excelFilePath: Assets/Res/Excel/TestData.xlsx
   SheetNames:
   - Sheet1
+  - Sheet2
   currentSelectedSheet: 0

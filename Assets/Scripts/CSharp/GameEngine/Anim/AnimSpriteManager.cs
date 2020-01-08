@@ -69,15 +69,10 @@ namespace LoveYouForever
         */
         public Sprite[] LoadAnim(string name)
         {
-            if (!spriteList.ContainsKey(name))
-            {
-                // 字符串分割 name.Split('#');
-                string[] str = name.Split('#');
+            
                 spriteList.Add(name,
-                    LoadSprite(textureMainPath + str[0], str[1], dataMainPath + str[0], str[1]));
-            }
-
-            return spriteList[name];
+                    LoadSprite(textureMainPath + name, dataMainPath + name));
+                return spriteList[name];
         }
 
         public void RemoveAnim(string name)
@@ -94,20 +89,17 @@ namespace LoveYouForever
 
         // TODO: 待修改
         /// <summary>
-        /// 精灵资源加载（图片路径，资源名，数据路径，数据名）
+        /// 精灵资源加载（资源key，数据key）
         /// </summary>
-        /// <param name="texture_path_name"></param>
         /// <param name="texture_res_name"></param>
-        /// <param name="data_path_name"></param>
         /// <param name="data_res_name"></param>
         /// <returns></returns>
-        Sprite[] LoadSprite(string texture_path_name, string texture_res_name, string data_path_name,
-            string data_res_name)
+        Sprite[] LoadSprite(string texture_res_name,string data_res_name)
         {
             // 加载图片
-            Texture2D texture = ResLoadManager.Instance.LoadObject<Texture2D>(texture_path_name, texture_res_name);
+            Texture2D texture = AssetManager.GetAsset<Texture2D>(texture_res_name);
             // 加载数据
-            TextAsset data = ResLoadManager.Instance.LoadObject<TextAsset>(data_path_name, data_res_name);
+            TextAsset data = AssetManager.GetAsset<TextAsset>(data_res_name);
             int index = 0;
             int len = BitConverter.ToInt32(data.bytes, index);
             index += 4;

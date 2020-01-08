@@ -33,76 +33,89 @@ namespace LoveYouForever
         /// <summary>
         /// 面板显示总开关
         /// </summary>
-        public bool isShow;
+        public bool IsShow;
+
+        /// <summary>
+        /// UI预设体路径
+        /// </summary>
+        private string uiPrefabPath = "UIPrefabs/";
 
         /// <summary>
         /// UI
         /// </summary>
-        public Transform UI => ResLoadManager.Instance.LoadPrefab("Prefabs/UI", "UI").transform;
+        public Transform UI { get; }
 
         /// <summary>
         /// Canvas层
         /// </summary>
-        public Transform UIRoot => UI.Find("Canvas");
+        public Transform UIRoot { get; }
 
         /// <summary>
         /// UI顶层
         /// </summary>
-        public Transform UITop => UIRoot.Find("Top");
+        public Transform UITop { get; }
 
         /// <summary>
         /// UI中层
         /// </summary>
-        public Transform UIMid => UIRoot.Find("Mid");
+        public Transform UIMid { get; }
 
         /// <summary>
         /// UI底层
         /// </summary>
-        public Transform UIBot => UIRoot.Find("Bot");
+        public Transform UIBot { get; }
 
         /// <summary>
         /// UI画布
         /// </summary>
-        public Canvas rootCanvas => UIRoot.GetComponent<Canvas>();
+        public Canvas RootCanvas { get; }
 
         /// <summary>
         /// Canvas层的RectTransform
         /// </summary>
-        public RectTransform rootRectTransform => UIRoot.GetComponent<RectTransform>();
+        public RectTransform RootRectTransform { get; }
 
         /// <summary>
         /// 画布尺寸相关
         /// </summary>
-        public CanvasScaler rootScaler => UIRoot.GetComponent<CanvasScaler>();
+        public CanvasScaler RootScaler { get; }
 
         /// <summary>
         /// 半屏宽
         /// </summary>
-        public float halfScreenW => Screen.width * 0.5f;
+        public float HalfScreenW => Screen.width * 0.5f;
 
         /// <summary>
         /// 半屏高
         /// </summary>
-        public float halfScreenH => Screen.height * 0.5f;
+        public float HalfScreenH => Screen.height * 0.5f;
 
         /// <summary>
         /// 真机比率
         /// </summary>
-        public float realMachineRatio => (float)Screen.height / Screen.width;
+        public float RealMachineRatio => (float)Screen.height / Screen.width;
 
         /// <summary>
         /// 预设比率
         /// </summary>
-        public float preaetRatio => rootScaler.referenceResolution.y / rootScaler.referenceResolution.x;
+        public float PreaetRatio => RootScaler.referenceResolution.y / RootScaler.referenceResolution.x;
 
         /// <summary>
         /// UI面板管理表
         /// </summary>
-        Dictionary<string, UIBase> _UIPanelList;
+        Dictionary<string, UIBase> uiPanelList;
 
         public UIManager()
         {
-            _UIPanelList = new Dictionary<string, UIBase>();
+            uiPanelList = new Dictionary<string, UIBase>();
+            UI = AssetManager.LoadPrefab(uiPrefabPath + "UI").transform;
+            UIRoot = UI.Find("Canvas");
+            UITop = UIRoot.Find("Top");
+            UIMid = UIRoot.Find("Mid");
+            UIBot = UIRoot.Find("Bot"); 
+            RootCanvas = UIRoot.GetComponent<Canvas>();
+            RootRectTransform = UIRoot.GetComponent<RectTransform>();
+            RootScaler = UIRoot.GetComponent<CanvasScaler>();
             Object.DontDestroyOnLoad(UI.gameObject);
         }
 
@@ -121,7 +134,7 @@ namespace LoveYouForever
             UIBase panel;
             if (!IsHavePanel(panelName))
             {
-                GameObject obj = ResLoadManager.Instance.LoadPrefab("Prefabs/UI", "prefabName");
+                GameObject obj = AssetManager.LoadPrefab(uiPrefabPath + prefabName);
                 obj.name = panelName;
                 //设置层级
                 RectTransform tr = obj.transform as RectTransform;
@@ -136,13 +149,13 @@ namespace LoveYouForever
                 tr.offsetMax = Vector2.zero;
                 tr.offsetMin = Vector2.zero;
                 panel = obj.AddComponent<T>();
-                _UIPanelList.Add(panelName, panel);
+                uiPanelList.Add(panelName, panel);
                 panel.Init();
                 panel.Show();
             }
             else
             {
-                panel = _UIPanelList[panelName];
+                panel = uiPanelList[panelName];
                 panel.transform.SetAsLastSibling();
                 panel.Show();
             }
@@ -157,7 +170,7 @@ namespace LoveYouForever
         {
             if (IsHavePanel(panelName))
             {
-                _UIPanelList[panelName].Hide();
+                uiPanelList[panelName].Hide();
             }
         }
 
@@ -167,10 +180,10 @@ namespace LoveYouForever
         public void HideAllPanel()
         {
             Dictionary<string, UIBase>.Enumerator enumerator
-                = _UIPanelList.GetEnumerator();
+                = uiPanelList.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                _UIPanelList[enumerator.Current.Key].Hide();
+                uiPanelList[enumerator.Current.Key].Hide();
             }
         }
 
@@ -182,8 +195,8 @@ namespace LoveYouForever
         {
             if (IsHavePanel(panelName))
             {
-                _UIPanelList[panelName].Destroy();
-                _UIPanelList.Remove(panelName);
+                uiPanelList[panelName].Destroy();
+                uiPanelList.Remove(panelName);
             }
         }
 
@@ -192,12 +205,12 @@ namespace LoveYouForever
         /// </summary>
         public void DestroyAllPanel()
         {
-            Dictionary<string, UIBase>.Enumerator enumerator = _UIPanelList.GetEnumerator();
+            Dictionary<string, UIBase>.Enumerator enumerator = uiPanelList.GetEnumerator();
             while (enumerator.MoveNext())
             {
-                _UIPanelList[enumerator.Current.Key].Destroy();
+                uiPanelList[enumerator.Current.Key].Destroy();
             }
-            _UIPanelList.Clear();
+            uiPanelList.Clear();
         }
 
         /// <summary>
@@ -208,7 +221,7 @@ namespace LoveYouForever
         public UIBase GetPanel(string panelName)
         {
             if (IsHavePanel(panelName))
-                return _UIPanelList[panelName];
+                return uiPanelList[panelName];
             return null;
         }
 
@@ -219,7 +232,7 @@ namespace LoveYouForever
         /// <returns></returns>
         bool IsHavePanel(string panelName)
         {
-            return _UIPanelList.ContainsKey(panelName);
+            return uiPanelList.ContainsKey(panelName);
         }
     }
 }

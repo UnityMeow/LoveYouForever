@@ -17,15 +17,31 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: c06b6805142081e489178f1e5ee1e17d
   m_SerializeEntries:
+  - m_GUID: 11f4966c96b54024daae077a6241447b
+    m_Address: ExcelAssets
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Excel
+    m_mainAssetType: 
+  - m_GUID: 1abf5c2aee12fe54b88ccd75ddd7f838
+    m_Address: UIPrefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    m_mainAssetType: 
   - m_GUID: 23f361ea2923b4c4791857026736949a
     m_Address: UI
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
+    m_mainAssetType: 
   - m_GUID: 46988f095752ef84da865fdeb501e979
     m_Address: 123
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Test
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b33f139beef53f246a8e08515b287bdf, type: 2}
   m_SchemaSet:

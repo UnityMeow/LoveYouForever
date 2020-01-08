@@ -19,10 +19,10 @@ namespace LoveYouForever
 {
 	public class ChunkAllocator : InstanceNull<ChunkAllocator>
     {
-        Dictionary<string, Chunk> _chunkList;
+        Dictionary<string, Chunk> chunkList;
         public ChunkAllocator()
         {
-            _chunkList = new Dictionary<string, Chunk>();
+            chunkList = new Dictionary<string, Chunk>();
         }
 
         /// <summary>
@@ -32,13 +32,13 @@ namespace LoveYouForever
         {
             if (IsHavePool(poolName))
             {
-                _chunkList[poolName].RevertObj(obj);
+                chunkList[poolName].RevertObj(obj);
             }
             else
             {
                 Chunk chunk = new Chunk();
                 chunk.RevertObj(obj);
-                _chunkList.Add(poolName, chunk);
+                chunkList.Add(poolName, chunk);
             }
         }
         
@@ -53,24 +53,22 @@ namespace LoveYouForever
             {
                 return new Object();
             }
-            return _chunkList[poolName].GetObj();
+            return chunkList[poolName].GetObj();
         }
 
         /// <summary>
         /// 获取资源对象
         /// </summary>
         /// <param name="poolName"></param>
-        /// <param name="pathName"></param>
         /// <param name="resName"></param>
-        /// <param name="bagName"></param>
         /// <returns></returns>
-        public Object GetObj(string poolName, string pathName, string resName, string bagName = "")
+        public Object GetObj(string poolName, string resName)
         {
             if (!IsHavePool(poolName))
             {
-                return ResLoadManager.Instance.LoadObject<Object>(pathName, resName, bagName);
+                return AssetManager.GetAsset<Object>(resName);
             }
-            return _chunkList[poolName].GetObj();
+            return chunkList[poolName].GetObj();
         }
 
         /// <summary>
@@ -81,11 +79,11 @@ namespace LoveYouForever
         {
             if (poolName == "")
             {
-                _chunkList.Clear();
+                chunkList.Clear();
                 return;
             }
             if (IsHavePool(poolName))
-                _chunkList.Remove(poolName);
+                chunkList.Remove(poolName);
         }
 
         /// <summary>
@@ -95,7 +93,7 @@ namespace LoveYouForever
         /// <returns></returns>
         bool IsHavePool(string poolName)
         {
-            return _chunkList.ContainsKey(poolName);
+            return chunkList.ContainsKey(poolName);
         }
     }
 }

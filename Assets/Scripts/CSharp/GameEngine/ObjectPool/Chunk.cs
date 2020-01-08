@@ -22,19 +22,19 @@ namespace LoveYouForever
         /// <summary>
         /// 池子容器
         /// </summary>
-        List<Object> _objectList;
+        List<Object> objectList;
 
         /// <summary>
         /// 初始化容器
         /// </summary>
         public Chunk()
         {
-            _objectList = new List<Object>();
+            objectList = new List<Object>();
         }
         /// <summary>
         /// 是否存在对象
         /// </summary>
-        public bool IsHave => _objectList.Count > 0;
+        public bool IsHave => objectList.Count > 0;
 
         /// <summary>
         /// 从池子里取出对象
@@ -43,9 +43,9 @@ namespace LoveYouForever
         public Object GetObj()
         {
             //取第一个
-            Object obj = _objectList[0];
+            Object obj = objectList[objectList.Count - 1];
             //从池子中移除
-            _objectList.RemoveAt(0);
+            objectList.RemoveAt(objectList.Count - 1);
             return obj;
         }
 
@@ -54,7 +54,7 @@ namespace LoveYouForever
         /// </summary>
         public void RevertObj(Object obj)
         {
-            _objectList.Add(obj);
+            objectList.Add(obj);
         }
     }
 }

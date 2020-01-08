@@ -60,7 +60,7 @@ namespace LoveYouForever
         private void LoadConfig<T>(string name, Type type)
             where T : ConfigsBase
         {
-            var config = ResLoadManager.Instance.LoadObject<T>("Configs", name);
+            var config = AssetManager.GetAsset<T>(name);
             configsDic.Add(type, config);
         }
 
