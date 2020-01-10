@@ -102,7 +102,7 @@ namespace LoveYouForever
         protected T GetControl<T>(string name)
         where T : MonoBehaviour
         {
-            if (itemList[name] == null)
+            if (!itemList.ContainsKey(name))
                 return null;
             return itemList[name].GetComponent<T>();
         }
@@ -114,7 +114,7 @@ namespace LoveYouForever
         /// <returns></returns>
         public GameObject GetGameObject(string name)
         {
-            if (itemList[name] == null)
+            if (!itemList.ContainsKey(name))
                 return null;
             return itemList[name];
         }

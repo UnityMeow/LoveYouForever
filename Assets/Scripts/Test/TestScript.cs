@@ -29,8 +29,10 @@ namespace LoveYouForever
 				new AssetLoader.AssetLoadConfig{type = typeof(Sprite),Label = "Test"},
 				new AssetLoader.AssetLoadConfig{type = typeof(GameObject),Label = "UI"},
 				new AssetLoader.AssetLoadConfig{type = typeof(ScriptableObject),Label = "Excel"},
+				new AssetLoader.AssetLoadConfig{type = typeof(Texture2D),Label = "AnimPic"},
+				new AssetLoader.AssetLoadConfig{type = typeof(TextAsset),Label = "AnimData"},
 			});
-			// 开始加载yiy
+			// 开始加载资源
 			loader.StartLoad(onCompleted);
 		}
 
@@ -39,7 +41,7 @@ namespace LoveYouForever
 		/// </summary>
 		private void onCompleted()
 		{
-			UIManager.Instance.ShowPanel<UITest>("TestMain","TestMainPanel");
+			//UIManager.Instance.ShowPanel<UITest>("TestMain","TestMainPanel");
 			GetComponent<SpriteRenderer>().sprite = AssetManager.GetAsset<Sprite>("123");
 			data = ExcelDataManager.GetData<Sheet1>("Sheet1");
 			Debug.Log(data.dataArray[2].Name);

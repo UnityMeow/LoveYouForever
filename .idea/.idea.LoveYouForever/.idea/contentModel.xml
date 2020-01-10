@@ -206,6 +206,7 @@
             </e>
             <e p="GameEngine" t="Include">
               <e p="Anim" t="Include">
+                <e p="AnimBase.cs" t="Include" />
                 <e p="AnimSpriteManager.cs" t="Include" />
               </e>
               <e p="Data" t="Include">
@@ -269,6 +270,7 @@
           </e>
           <e p="Test" t="Include">
             <e p="AssetReferenceTest.cs" t="Include" />
+            <e p="TestAnim.cs" t="Include" />
             <e p="TestScript.cs" t="Include" />
           </e>
         </e>

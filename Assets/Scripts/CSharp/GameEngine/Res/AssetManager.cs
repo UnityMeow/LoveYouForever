@@ -44,6 +44,7 @@ namespace LoveYouForever
             new Dictionary<Type, Func<string, bool, AsyncOperationHandle>>
             {
                 {typeof(Texture), (lable, releasable) => LoadAssetsAsync<Texture>(lable, releasable)},
+                {typeof(Texture2D), (lable, releasable) => LoadAssetsAsync<Texture2D>(lable, releasable)},
                 {typeof(Sprite), (lable, releasable) => LoadAssetsAsync<Sprite>(lable, releasable)},
                 {typeof(GameObject), (lable, releasable) => LoadAssetsAsync<GameObject>(lable, releasable)},
                 {typeof(ScriptableObject), (lable, releasable) => LoadAssetsAsync<ScriptableObject>(lable, releasable)},

@@ -42,6 +42,18 @@ MonoBehaviour:
     - Test
     m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  - m_GUID: 6807b03e5dc15f34687868666e1a12c4
+    m_Address: Animations/pic
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AnimPic
+    m_mainAssetType: 
+  - m_GUID: 82589f0a45f6d4745a699e8cc7595a4b
+    m_Address: Animations/data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AnimData
+    m_mainAssetType: 
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b33f139beef53f246a8e08515b287bdf, type: 2}
   m_SchemaSet:

@@ -65,14 +65,12 @@ namespace LoveYouForever
             规则：
                 bytes放主路径下的data文件夹
                 png放主路径下的pic文件夹
-            参数：“相对路径#文件名” 用#隔开
         */
         public Sprite[] LoadAnim(string name)
         {
-            
-                spriteList.Add(name,
+            spriteList.Add(name,
                     LoadSprite(textureMainPath + name, dataMainPath + name));
-                return spriteList[name];
+            return spriteList[name];
         }
 
         public void RemoveAnim(string name)
@@ -86,20 +84,20 @@ namespace LoveYouForever
         {
             spriteList.Clear();
         }
-
-        // TODO: 待修改
+        
         /// <summary>
         /// 精灵资源加载（资源key，数据key）
         /// </summary>
-        /// <param name="texture_res_name"></param>
-        /// <param name="data_res_name"></param>
+        /// <param name="textureName"></param>
+        /// <param name="dataName"></param>
         /// <returns></returns>
-        Sprite[] LoadSprite(string texture_res_name,string data_res_name)
+        Sprite[] LoadSprite(string textureName,string dataName)
         {
             // 加载图片
-            Texture2D texture = AssetManager.GetAsset<Texture2D>(texture_res_name);
+            Texture2D texture = AssetManager.GetAsset<Texture2D>(textureName + ".png");
             // 加载数据
-            TextAsset data = AssetManager.GetAsset<TextAsset>(data_res_name);
+            TextAsset data = AssetManager.GetAsset<TextAsset>(dataName + ".bytes");
+            Debug.Log(dataName + ".bytes");
             int index = 0;
             int len = BitConverter.ToInt32(data.bytes, index);
             index += 4;
