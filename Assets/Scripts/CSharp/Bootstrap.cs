@@ -25,8 +25,29 @@ namespace LoveYouForever
         {
             base.OnStart();
             DontDestroyOnLoad(this);
-            //Loading资源加载
-            //UIManager.Instance.ShowPanel<UILoading>("", "");
+            startGame();
+        }
+
+        public void startGame()
+        {
+            var loader = new AssetLoader();
+            // 添加资源配置
+            loader.AddLoadConfig(new AssetLoader.AssetLoadConfig[]
+            {
+                new AssetLoader.AssetLoadConfig{type = typeof(Sprite),Label = "Test"},
+                new AssetLoader.AssetLoadConfig{type = typeof(GameObject),Label = "UI"},
+            });
+            // 开始加载资源
+            loader.StartLoad(onCompleted);
+        }
+        
+        /// <summary>
+        /// 加载结束回调
+        /// </summary>
+        private void onCompleted()
+        {
+            Debug.Log("准备显示Loading界面");
+            UIManager.Instance.ShowPanel<UILoading>("LoadingUI","LoadingUI");
         }
     }
 }

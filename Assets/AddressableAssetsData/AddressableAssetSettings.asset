@@ -24,6 +24,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 28e7b323aaca5424283aeb15f3b1e992, type: 2}
   - {fileID: 11400000, guid: 32939c9cb352e534f852d962bd506204, type: 2}
+  - {fileID: 11400000, guid: 4937e8a4b6b80f547a944f63e4dbc382, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -70,6 +71,7 @@ MonoBehaviour:
     - Excel
     - AnimPic
     - AnimData
+    - Game
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 0e2653712cc9f3144a647bc80a196cdb, type: 2}

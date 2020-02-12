@@ -196,9 +196,18 @@
             </e>
           </e>
         </e>
+        <e p="Res" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="GrayImage.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="CSharp" t="Include">
             <e p="Bootstrap.cs" t="Include" />
+            <e p="Game" t="Include">
+              <e p="GameData.cs" t="Include" />
+              <e p="GameManager.cs" t="Include" />
+            </e>
             <e p="GameData" t="Include">
               <e p="UIData" t="Include">
                 <e p="UIDataMainConfigs.cs" t="Include" />
@@ -206,8 +215,8 @@
             </e>
             <e p="GameEngine" t="Include">
               <e p="Anim" t="Include">
-                <e p="AnimBase.cs" t="Include" />
                 <e p="AnimSpriteManager.cs" t="Include" />
+                <e p="MeowAnimation.cs" t="Include" />
               </e>
               <e p="Data" t="Include">
                 <e p="ConfigsBase.cs" t="Include" />
@@ -236,6 +245,11 @@
               <e p="Res" t="Include">
                 <e p="AssetLoader.cs" t="Include" />
                 <e p="AssetManager.cs" t="Include" />
+              </e>
+              <e p="Timer" t="Include">
+                <e p="Timer.cs" t="Include" />
+                <e p="TimerID.cs" t="Include" />
+                <e p="TimerManager.cs" t="Include" />
               </e>
               <e p="UI" t="Include">
                 <e p="UIBase.cs" t="Include" />
@@ -270,6 +284,7 @@
           </e>
           <e p="Test" t="Include">
             <e p="AssetReferenceTest.cs" t="Include" />
+            <e p="BackgroundController.cs" t="Include" />
             <e p="TestAnim.cs" t="Include" />
             <e p="TestScript.cs" t="Include" />
           </e>

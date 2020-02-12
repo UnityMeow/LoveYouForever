@@ -10,14 +10,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LoveYouForever
 {
 	public class UILoading : UIBase
     {
-        public override void Destroy()
+        public override void Init()
         {
-            UIManager.Instance.ShowPanel<UIMain>("", "");
+            base.Init();
+            showType = ShowType.Normal;
+            var loader = new AssetLoader();
+            // 添加资源配置
+            loader.AddLoadConfig(new AssetLoader.AssetLoadConfig[]
+            {
+                new AssetLoader.AssetLoadConfig{type = typeof(Sprite),Label = "Test"},
+                new AssetLoader.AssetLoadConfig{type = typeof(GameObject),Label = "UI"},
+                new AssetLoader.AssetLoadConfig{type = typeof(ScriptableObject),Label = "Excel"},
+                new AssetLoader.AssetLoadConfig{type = typeof(Texture2D),Label = "AnimPic"},
+                new AssetLoader.AssetLoadConfig{type = typeof(TextAsset),Label = "AnimData"},
+                new AssetLoader.AssetLoadConfig{type = typeof(GameObject),Label = "Game"},
+            });
+            // 开始加载资源
+            loader.StartLoad(onCompleted);
+        }
+
+        public override void Show()
+        {
+            base.Show();
+        }
+
+        private void onCompleted()
+        {
+            showType = ShowType.Fade;
+            Hide(()=>UIManager.Instance.ShowPanel<UIMain>("MainUI", "MainUI"));
+            GameManager.Instance.Init();
         }
     }
 }

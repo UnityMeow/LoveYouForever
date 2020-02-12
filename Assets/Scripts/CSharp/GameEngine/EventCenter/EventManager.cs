@@ -29,9 +29,9 @@ namespace LoveYouForever
 		{
 			if (listener == null)
 				return;
-			//记录事件
+			// 记录事件
 			AddEvent(eventType);
-			//添加事件监听器
+			// 添加事件监听器
 			eventListenerList[eventType].Add(new EventListener(listener, callBack));
 		}
 

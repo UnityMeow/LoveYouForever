@@ -18,5 +18,6 @@ namespace LoveYouForever
 	/// </summary>
 	public enum EventType
 	{
+		GameStart,
 	}
 }

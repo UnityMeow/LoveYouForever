@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class TestAnim : AnimBase
+	public class TestAnim : MeowAnimation
 	{
 		protected override void Awake()
 		{
