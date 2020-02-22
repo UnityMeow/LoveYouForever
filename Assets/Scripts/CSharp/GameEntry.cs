@@ -20,10 +20,10 @@ namespace LoveYouForever
     /// <summary>
     /// 游戏启动程序
     /// </summary>
-	public class GameEnry : MonoBehaviour
+	public class GameEntry : MonoBehaviour
     {
         // 待修改
-        public GameEnry Instance { get; private set; }
+        public GameEntry Instance { get; private set; }
         private void Awake()
         {
             Instance = this;

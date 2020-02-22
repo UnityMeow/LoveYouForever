@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class Bootstrap : GameEnry
+	public class Bootstrap : GameEntry
     {
         protected override void OnInit()
         {
@@ -28,7 +28,7 @@ namespace LoveYouForever
             startGame();
         }
 
-        public void startGame()
+        private void startGame()
         {
             var loader = new AssetLoader();
             // 添加资源配置

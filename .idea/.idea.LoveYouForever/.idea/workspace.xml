@@ -12,11 +12,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/QuickSheet/ExcelPlugin/Editor/ExcelQuery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Runtime/ForwardRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7559BF97-67E7-4FF5-906F-18401F66CD57/d3/3ce413fc/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Anim/MeowAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBD3A770-660A-456E-8DB8-894556CF3CAD/ce/8a099956/RotateMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/Rocker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/QuickSheet/GDataPlugin/Editor/GoogleDataSettingsEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Shaders/2D/Sprite-Lit-Default.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/QuickSheet/GDataPlugin/Editor/GoogleMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/EventCenter/EventListener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/Game/GameData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -24,17 +26,22 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Anim/AnimSpriteManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.5.0/Runtime/ResourceManager/Util/DelegateList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Res/Shaders/GrayImage.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Runtime/ScriptableRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Test/BackgroundController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBD3A770-660A-456E-8DB8-894556CF3CAD/d1/04a770f5/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.5.0/Runtime/ResourceManager/AsyncOperations/AsyncOperationHandle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/17/e30b75a3/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Timer/TimerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/Bootstrap.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEnry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/7a/262acec0/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Res/AssetManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.5.0/Runtime/ResourceManager/ResourceLocations/IResourceLocation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/UI/UIMain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/UI/UILoading.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/90/6386b08b/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameData/UIData/UIDataMainConfigs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/90/37ca0b75/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/EventCenter/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Excel/Sheet1Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Excel/Sheet1.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,6 +66,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Util/GlobalUtil.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Music/MusicManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Instance/InstanceMono.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Res/Shaders/Sprite2DLightGray.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Instance/InstanceNull.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Database.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DBD3A770-660A-456E-8DB8-894556CF3CAD/19/ce1ca5c9/LoopType.cs" root0="SKIP_HIGHLIGHTING" />
@@ -68,6 +76,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/ObjectPool/Chunk.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D195DA47-F292-4AA6-AB1F-FC82F421F850/2b/6166c870/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/QuickSheet/GDataPlugin/Editor/GDataDB/GDataDB/Impl/Table.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Shaders/Utils/Blit.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Data/ExcelDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7559BF97-67E7-4FF5-906F-18401F66CD57/cd/51b4de83/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7559BF97-67E7-4FF5-906F-18401F66CD57/98/474e4460/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,20 +94,16 @@
         <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.3.8/Runtime/Addressables.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Res/AssetLoadManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Util/CallBackUtil.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEnry.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Data/ConfigsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Music/MusicManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Test/GameData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/UI/UITest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/ObjectPool/ChunkAllocator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/ObjectPool/Chunk.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Res/AssetLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Test/AssetReferenceTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Data/ExcelDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/UI/UIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Res/AssetManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Test/TestAnim.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Test/TestScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Anim/AnimSpriteManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Timer/TimerID.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Timer/Timer.cs" />
@@ -107,18 +112,29 @@
         <option value="$PROJECT_DIR$/Assets/Res/Shaders/BrightnessForAnim.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Anim/MeowAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Res/Shaders/GrayImage.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/Bootstrap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/UI/UIBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/EventCenter/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/EventCenter/EventType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Test/BackGroundMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Test/BackgroundMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/MonoTool/GlobalMonoManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Test/BackgroundController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/UI/UILoading.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/Game/GameData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/UI/UIMain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/Game/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Test/BackgroundController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/EventCenter/EventType.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Shaders/2D/Sprite-Lit-Default.shader" />
+        <option value="$PROJECT_DIR$/Assets/Res/Shaders/Sprite2DLightGray.shader" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Shaders/Utils/Blit.shader" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Runtime/ForwardRenderer.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7.2.0/Runtime/ScriptableRenderer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Test/TestScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/Game/GameData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/t.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEnry.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEntry.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Res/AssetLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/Bootstrap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CSharp/GameEngine/Res/AssetManager.cs" />
       </list>
     </option>
   </component>
@@ -202,6 +218,11 @@
       <workItem from="1581081406407" duration="8902000" />
       <workItem from="1581092941357" duration="2677000" />
       <workItem from="1581348449808" duration="3953000" />
+      <workItem from="1581519527496" duration="8086000" />
+      <workItem from="1581604767871" duration="4344000" />
+      <workItem from="1582095105371" duration="702000" />
+      <workItem from="1582128502629" duration="3170000" />
+      <workItem from="1582259746839" duration="1258000" />
     </task>
     <servers />
   </component>
@@ -321,29 +342,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="482" y="511" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400@0.0.2560.1400" timestamp="1578674238454" />
-    <state x="258" y="215" width="672" height="504" key="search.everywhere.popup" timestamp="1581080733095">
+    <state x="534" y="363" width="672" height="504" key="search.everywhere.popup" timestamp="1581609956284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="258" y="215" width="672" height="504" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581080733095" />
+    <state x="534" y="363" width="672" height="504" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1581609956284" />
     <state x="344" y="289" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1576770466388" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Test/TestScript.cs</url>
-          <line>43</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Test/TestScript.cs" initialLine="43">
-            <startOffsets>
-              <option value="1202" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1267" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

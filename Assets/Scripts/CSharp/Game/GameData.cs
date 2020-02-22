@@ -16,5 +16,20 @@ namespace LoveYouForever
 	public class GameData
 	{
 		public string GameSceneName = "GamePrefabs/TestGameScene";
+
+		private string season;
+		/// <summary>
+		/// 当前季节
+		/// </summary>
+		public string CurSeason
+		{
+			set
+			{
+				season = value;
+				EventManager.Instance.SendEvent(EventType.Season);
+			}
+			
+			get => season;
+		}
 	}
 }

@@ -199,6 +199,7 @@
         <e p="Res" t="Include">
           <e p="Shaders" t="Include">
             <e p="GrayImage.shader" t="Include" />
+            <e p="Sprite2DLightGray.shader" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -261,7 +262,7 @@
                 <e p="GlobalUtil.cs" t="Include" />
               </e>
             </e>
-            <e p="GameEnry.cs" t="Include" />
+            <e p="GameEntry.cs" t="Include" />
             <e p="Rocker.cs" t="Include" />
             <e p="UI" t="Include">
               <e p="UILoading.cs" t="Include" />

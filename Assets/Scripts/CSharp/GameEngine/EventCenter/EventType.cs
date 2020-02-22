@@ -18,6 +18,12 @@ namespace LoveYouForever
 	/// </summary>
 	public enum EventType
 	{
-		GameStart,
+		GameStart = 1,
+		Run = 2,
+		
+		/// <summary>
+		/// 季节变换
+		/// </summary>
+		Season = 10,
 	}
 }

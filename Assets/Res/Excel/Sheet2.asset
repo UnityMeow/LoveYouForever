@@ -17,28 +17,28 @@ MonoBehaviour:
   dataArray:
   - id: 1
     name: "\u4E00"
-    info: 
+    info: 0100000002000000
   - id: 2
     name: "\u4E8C"
-    info: 
+    info: 0400000005000000
   - id: 3
     name: "\u4E09"
-    info: 
+    info: 0200000006000000
   - id: 4
     name: "\u56DB"
-    info: 
+    info: 0800000006000000
   - id: 5
     name: "\u4E94"
-    info: 
+    info: 0100000003000000
   - id: 6
     name: "\u516D"
-    info: 
+    info: 0400000006000000
   - id: 7
     name: "\u4E03"
-    info: 
+    info: 0200000007000000
   - id: 8
     name: "\u516B"
-    info: 
+    info: 0800000007000000
   - id: 9
     name: "\u4E5D"
-    info: 
+    info: 0100000004000000

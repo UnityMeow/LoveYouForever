@@ -41,7 +41,7 @@ namespace LoveYouForever
 		/// </summary>
 		private void onCompleted()
 		{
-			//UIManager.Instance.ShowPanel<UITest>("TestMain","TestMainPanel");
+			// UIManager.Instance.ShowPanel<UITest>("TestMain","TestMainPanel");
 			GetComponent<SpriteRenderer>().sprite = AssetManager.GetAsset<Sprite>("123");
 			data = ExcelDataManager.GetData<Sheet1>("Sheet1");
 			Debug.Log(data.dataArray[2].Name);

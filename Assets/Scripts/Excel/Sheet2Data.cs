@@ -17,7 +17,7 @@ public class Sheet2Data
   public string Name { get {return name; } set { name = value;} }
   
   [SerializeField]
-  string info;
-  public string Info { get {return info; } set { info = value;} }
+  int[] info = new int[0];
+  public int[] Info { get {return info; } set { info = value;} }
   
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   scriptFilePath: Scripts/Excel
   editorScriptFilePath: Scripts/Editor/Excel
   sheetName: TestData.xlsx
-  workSheetName: Sheet1
+  workSheetName: Sheet2
   columnHeaderList:
   - type: 3
     name: id
@@ -26,12 +26,12 @@ MonoBehaviour:
     name: name
     isEnable: 0
     isArray: 0
-  - type: 0
+  - type: 3
     name: info
     isEnable: 0
-    isArray: 0
+    isArray: 1
   excelFilePath: Assets/Res/Excel/TestData.xlsx
   SheetNames:
   - Sheet1
   - Sheet2
-  currentSelectedSheet: 0
+  currentSelectedSheet: 1

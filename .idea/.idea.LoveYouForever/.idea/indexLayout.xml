@@ -8,7 +8,11 @@
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.4</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.1.4</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.core@7.2.0</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.lightweight@7.2.0</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.universal@7.2.0</Path>
       <Path>Library/PackageCache/com.unity.scriptablebuildpipeline@1.5.4</Path>
+      <Path>Library/PackageCache/com.unity.shadergraph@7.2.0</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.9</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.10</Path>

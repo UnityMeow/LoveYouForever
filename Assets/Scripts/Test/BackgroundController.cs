@@ -61,6 +61,7 @@ namespace LoveYouForever
                 background[i].localPosition = new Vector3(i * width,0,0);
             }
 
+            EventManager.Instance.Add(EventType.Season,this,onEventChange);
             // TODO: 待修改 后期直接在按键触发
             GlobalMonoManager.Instance.AddFixedUpdateListener(Move);
         }
@@ -83,7 +84,7 @@ namespace LoveYouForever
         /// <summary>
         /// 背景切换
         /// </summary>
-        public void Change(string name)
+        public void onEventChange()
         {
 
         }

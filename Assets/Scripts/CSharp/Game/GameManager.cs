@@ -52,13 +52,19 @@ public class GameManager : InstanceNull<GameManager>
     public GameManager()
     {
         EventManager.Instance.Add(EventType.GameStart,this,onEventGameStart);
+        EventManager.Instance.Add(EventType.Run,this,onEventGameRun);
+        
     }
 
     public void Init()
     {
         CurData = new GameData();
     }
+    
 
+    /// <summary>
+    /// 游戏启动
+    /// </summary>
     private void onEventGameStart()
     {
         Debug.Log("游戏启动");
@@ -70,6 +76,14 @@ public class GameManager : InstanceNull<GameManager>
         go.name = "TestGameScene";
         // 初始化背景
         BackgroundController.Instance.Init();
+    }
+
+    /// <summary>
+    /// 游戏运行
+    /// </summary>
+    private void onEventGameRun()
+    {
+        CurState = GameState.Run;
     }
 
 }

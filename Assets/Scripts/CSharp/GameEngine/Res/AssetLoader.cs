@@ -35,7 +35,7 @@ namespace LoveYouForever
             /// 资源是否可释放
             /// 默认为不可释放
             /// </summary>
-            public bool Reslease = false;
+            public bool Release = false;
 
             /// <summary>
             /// 资源类型 待定
@@ -95,7 +95,7 @@ namespace LoveYouForever
             var assetConfig = assetLoadConfigs[++curLoadIndex];
 
             // 根据资源管理器获取当期加载资源Handle
-            curHandle = AssetManager.LoadAssetsAsync(assetConfig.type, assetConfig.Label, assetConfig.Reslease);
+            curHandle = AssetManager.LoadAssetsAsync(assetConfig.type, assetConfig.Label, assetConfig.Release);
 
             // 当前资源Handle加载完成时间添加
             curHandle.Completed += onLoadCompleted;
