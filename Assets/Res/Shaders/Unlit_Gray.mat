@@ -25,6 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Delta: 0.001
+    - _GrayOn: 0
     - _Grayscale: 1
     - _Poseterize: 0
     - _PosterizationCount: 8

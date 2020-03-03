@@ -18,10 +18,6 @@ Shader "Custom/2DLightGray"
 		[Toggle(UNITY_UI_ALPHACLIP)] _GrayOn("GrayOn", Float) = 1
 		// 灰度图百分比
 		_GrayPercent("Gray Percent", Range(0, 1)) = 1
-		
-		_RedPercent("Red Percent", Range(0, 1)) = 1
-		_GreenPercent("Green Percent", Range(0, 1)) = 1
-		_BluePercent("Blue Percent", Range(0, 1)) = 1
 		// ===================================
     }
 
@@ -75,9 +71,6 @@ Shader "Custom/2DLightGray"
             half4 _MainTex_ST;
             half4 _NormalMap_ST;
             // =========================
-            half _RedPercent;
-			half _GreenPercent;
-			half _BluePercent;
 			half _GrayPercent;
 			float _GrayOn;
 			// =========================
@@ -119,7 +112,7 @@ Shader "Custom/2DLightGray"
                 
                 // ==========================================
                 half4 color = CombinedShapeLightShared(main, mask, i.lightingUV);
-                half gray = (color.r * _RedPercent + color.g * _GreenPercent + color.b * _BluePercent) / 3.0;
+                half gray = dot(color, float3(0.299, 0.587, 0.114));
 				if (_GrayOn == 0)
 				{
 				    return color;
@@ -163,9 +156,6 @@ Shader "Custom/2DLightGray"
             float4 _NormalMap_ST;  // Is this the right way to do this?
             
             // =========================
-            half _RedPercent;
-			half _GreenPercent;
-			half _BluePercent;
 			half _GrayPercent;
 			float _GrayOn;
 			// =========================
@@ -192,7 +182,7 @@ Shader "Custom/2DLightGray"
                 float3 normalTS = UnpackNormal(SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, i.uv));
                 // ==========================================
                 half4 color = NormalsRenderingShared(mainTex, normalTS, i.tangentWS.xyz, i.bitangentWS.xyz, i.normalWS.xyz);
-                half gray = (color.r * _RedPercent + color.g * _GreenPercent + color.b * _BluePercent) / 3.0;
+                half gray = dot(color, float3(0.299, 0.587, 0.114));
 				if (_GrayOn == 0)
 				{
 					return color; 
@@ -230,9 +220,6 @@ Shader "Custom/2DLightGray"
             float4 _MainTex_ST;
             
             // =========================
-            half _RedPercent;
-			half _GreenPercent;
-			half _BluePercent;
 			half _GrayPercent;
 			float _GrayOn;
 			// =========================
@@ -252,7 +239,7 @@ Shader "Custom/2DLightGray"
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
                 // ==========================================
-                half gray = (mainTex.r * _RedPercent + mainTex.g * _GreenPercent + mainTex.b * _BluePercent) / 3.0;
+                half gray = dot(mainTex, float3(0.299, 0.587, 0.114));
 				if (_GrayOn == 0)
 				{
 				    return mainTex;
