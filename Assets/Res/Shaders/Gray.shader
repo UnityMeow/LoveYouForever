@@ -4,6 +4,8 @@
     {
         _MainTex ("Texture", 2D) = "black" {}
 		_Grayscale("Grayscale", Range(0, 1)) = 1
+		// 控制灰度图开关
+		[Toggle(UNITY_UI_ALPHACLIP)] _GrayOn("GrayOn", Float) = 1
     }
     SubShader
     {
@@ -36,6 +38,7 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float _Grayscale;
+            float _GrayOn;
 
             v2f vert (appdata v)
             {
@@ -50,11 +53,16 @@
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                fixed4 gray = dot(col, float3(0.299, 0.587, 0.114));
-                col = lerp(col, gray, _Grayscale);
                 
+                
+                if (_GrayOn == 1)
+				{
+				    fixed4 gray = dot(col, float3(0.299, 0.587, 0.114));
+                    col = lerp(col, gray, _Grayscale);
+				}
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
+                
                 return col;
             }
             ENDCG
