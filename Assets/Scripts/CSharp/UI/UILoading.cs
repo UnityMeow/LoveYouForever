@@ -43,7 +43,7 @@ namespace LoveYouForever
         private void onCompleted()
         {
             showType = ShowType.Fade;
-            Hide(()=>UIManager.Instance.ShowPanel<UIMain>("MainUI", "MainUI"));
+            Hide(()=>EventManager.Instance.SendEvent(EventType.UIMain));
             GameManager.Instance.Init();
         }
     }

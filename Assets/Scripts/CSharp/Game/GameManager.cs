@@ -18,9 +18,9 @@ public class GameManager : InstanceNull<GameManager>
     public enum GameState
     {
         /// <summary>
-        /// 游戏开始
+        /// 游戏初始化
         /// </summary>
-        Start,
+        Init,
         /// <summary>
         /// 游戏运行
         /// </summary>
@@ -51,9 +51,8 @@ public class GameManager : InstanceNull<GameManager>
 
     public GameManager()
     {
-        EventManager.Instance.Add(EventType.GameStart,this,onEventGameStart);
-        EventManager.Instance.Add(EventType.Run,this,onEventGameRun);
-        
+        EventManager.Instance.Add(EventType.GameInit,this,onEventGameStart);
+        EventManager.Instance.Add(EventType.GameRun,this,onEventGameRun);
     }
 
     public void Init()
@@ -68,7 +67,7 @@ public class GameManager : InstanceNull<GameManager>
     private void onEventGameStart()
     {
         Debug.Log("游戏启动");
-        CurState = GameState.Start;
+        CurState = GameState.Init;
         // TODO: 游戏初始化
         
         // 根据游戏数据加载游戏场景Prefab
@@ -76,6 +75,8 @@ public class GameManager : InstanceNull<GameManager>
         go.name = "TestGameScene";
         // 初始化背景
         BackgroundController.Instance.Init();
+        EventManager.Instance.SendEvent(EventType.GameRun);
+        
     }
 
     /// <summary>
@@ -84,6 +85,7 @@ public class GameManager : InstanceNull<GameManager>
     private void onEventGameRun()
     {
         CurState = GameState.Run;
+        EventManager.Instance.SendEvent(EventType.UIGame);
     }
 
 }

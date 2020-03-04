@@ -46,8 +46,9 @@ namespace LoveYouForever
         /// </summary>
         private void onCompleted()
         {
+            UIController.Instance.Init();
             Debug.Log("准备显示Loading界面");
-            UIManager.Instance.ShowPanel<UILoading>("LoadingUI","LoadingUI");
+            EventManager.Instance.SendEvent(EventType.UILoading);
         }
     }
 }

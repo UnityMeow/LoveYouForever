@@ -90,7 +90,7 @@ namespace LoveYouForever
         {
             Hide(() =>
             {
-                EventManager.Instance.SendEvent(EventType.GameStart);
+                EventManager.Instance.SendEvent(EventType.GameInit);
             });
         }
 
@@ -99,9 +99,11 @@ namespace LoveYouForever
         /// </summary>
         private void buttonSetting()
         {
-            // Hide();
             Debug.Log("设置界面");
-            // UIManager.Instance.ShowPanel<UIMain>("SettingUI", "SettingUI");
+            Hide(() =>
+            {
+                EventManager.Instance.SendEvent(EventType.UISetting);
+            });
         }
 
         /// <summary>
@@ -109,9 +111,11 @@ namespace LoveYouForever
         /// </summary>
         private void buttonMemento()
         {
-            // Hide();
             Debug.Log("记忆碎片");
-            // UIManager.Instance.ShowPanel<UIMain>("MementoUI", "MementoUI");
+            Hide(() =>
+            {
+                EventManager.Instance.SendEvent(EventType.UIMemento);
+            });
         }
 
         /// <summary>
@@ -119,9 +123,11 @@ namespace LoveYouForever
         /// </summary>
         private void buttonGuestBook()
         {
-            // Hide();
             Debug.Log("留言板");
-            // UIManager.Instance.ShowPanel<UIMain>("GuestUI", "GuestUI");
+            Hide(() =>
+            {
+                EventManager.Instance.SendEvent(EventType.UIGuestBook);
+            });
         }
 
     }
