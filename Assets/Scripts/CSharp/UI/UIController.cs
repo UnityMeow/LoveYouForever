@@ -62,8 +62,14 @@ namespace LoveYouForever
 			EventManager.Instance.Add(EventType.UISetting,this,onEventUISetting);
 			EventManager.Instance.Add(EventType.UIPause,this,onEventUIPause);
 			EventManager.Instance.Add(EventType.UIMemento,this,onEventUIMemento);
+			EventManager.Instance.Add(EventType.GuestBookData,this,onEventGuestBookData);
 		}
-		
+
+		private void onEventGuestBookData()
+		{
+			UIDataGuestBook.Instance.Init();
+		}
+
 		private void onEventUILoading()
 		{
 			CurState = UIState.UILoading;
@@ -85,6 +91,7 @@ namespace LoveYouForever
 		private void onEventUIGuestBook()
 		{
 			CurState = UIState.UIGuestBook;
+			UIManager.Instance.ShowPanel<UIGuestBook>("GuestBookUI", "GuestBookUI");
 		}
 		
 		private void onEventUISetting()

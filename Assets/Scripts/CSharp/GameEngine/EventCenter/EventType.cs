@@ -64,5 +64,10 @@ namespace LoveYouForever
 		/// 记忆碎片界面
 		/// </summary>
 		UIMemento = 1007,
+		
+		/// <summary>
+		/// 留言板数据
+		/// </summary>
+		GuestBookData = 2004,
 	}
 }

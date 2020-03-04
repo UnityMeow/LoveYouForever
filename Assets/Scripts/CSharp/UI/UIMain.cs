@@ -123,10 +123,11 @@ namespace LoveYouForever
         /// </summary>
         private void buttonGuestBook()
         {
+            
             Debug.Log("留言板");
             Hide(() =>
             {
-                EventManager.Instance.SendEvent(EventType.UIGuestBook);
+                EventManager.Instance.SendEvent(EventType.GuestBookData);
             });
         }
 

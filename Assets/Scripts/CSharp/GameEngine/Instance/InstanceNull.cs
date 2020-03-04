@@ -13,7 +13,7 @@ namespace LoveYouForever
 	public class InstanceNull<T>
         where T : new()
     {
-        protected static T instance;
+        private static T instance;
         public static T Instance
         {
             get
