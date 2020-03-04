@@ -1,2 +1,2 @@
 # LoveYouForever
- Don't forget the original heart. ❤️
+ Stick to your original desire. ❤️
