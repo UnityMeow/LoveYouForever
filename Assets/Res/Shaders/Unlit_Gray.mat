@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Unlit_Gray
   m_Shader: {fileID: 4800000, guid: ab50545c9614fea45b2e812434f3551b, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: UNITY_UI_ALPHACLIP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Delta: 0.001
-    - _GrayOn: 0
+    - _GrayOn: 1
     - _Grayscale: 1
     - _Poseterize: 0
     - _PosterizationCount: 8

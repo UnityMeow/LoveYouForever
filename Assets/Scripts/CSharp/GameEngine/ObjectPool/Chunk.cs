@@ -42,9 +42,9 @@ namespace LoveYouForever
         /// <returns></returns>
         public Object GetObj()
         {
-            //取第一个
+            // 取第一个
             Object obj = objectList[objectList.Count - 1];
-            //从池子中移除
+            // 从池子中移除
             objectList.RemoveAt(objectList.Count - 1);
             return obj;
         }

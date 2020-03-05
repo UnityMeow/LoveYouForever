@@ -74,18 +74,29 @@ namespace LoveYouForever
 
         /// <summary>
         /// 获取预设体对象
+        /// TODO:待修改 池满操作待移动
         /// </summary>
         /// <param name="poolName"></param>
         /// <returns></returns>
         public GameObject GetPrefab(string poolName, string resName, Transform parent = null)
         {
-            GameObject go = !IsHavePool(poolName)
-                ? AssetManager.LoadPrefab(resName)
-                : chunkList[poolName].GetObj() as GameObject;
+            GameObject go = null;
+            if (!IsHavePool(poolName))
+            {
+                go = AssetManager.LoadPrefab(resName);
+            }
+            else 
+            {
+                if (chunkList[poolName].IsHave)
+                    go = chunkList[poolName].GetObj() as GameObject;
+                else
+                    go = AssetManager.LoadPrefab(resName);
+            }
             if(parent != null)
                 go.transform.SetParent(parent);
             go.transform.localScale = Vector3.one;
             go.transform.position = Vector3.zero;
+            go.SetActive(true);
             return go;
         }
 

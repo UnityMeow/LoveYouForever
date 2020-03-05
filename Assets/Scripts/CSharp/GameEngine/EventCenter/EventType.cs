@@ -66,8 +66,12 @@ namespace LoveYouForever
 		UIMemento = 1007,
 		
 		/// <summary>
-		/// 留言板数据
+		/// 留言板数据初始化成功
 		/// </summary>
 		GuestBookData = 2004,
+		/// <summary>
+		/// 留言板数据发送成功
+		/// </summary>
+		InputSucceed = 2005,
 	}
 }
