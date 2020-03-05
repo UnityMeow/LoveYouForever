@@ -11,10 +11,12 @@
 ** 描  述: 
 *******************************************************************/
 #endregion
-using System.Collections;
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace LoveYouForever
 {
@@ -90,6 +92,13 @@ namespace LoveYouForever
         /// </summary>
         public float HalfScreenH => Screen.height * 0.5f;
 
+        private Vector2 screenUI;
+        
+        /// <summary>
+        /// 半屏UI位置
+        /// </summary>
+        public Vector2 ScreenUI => screenUI;
+
         /// <summary>
         /// 真机比率
         /// </summary>
@@ -117,6 +126,17 @@ namespace LoveYouForever
             RootRectTransform = UIRoot.GetComponent<RectTransform>();
             RootScaler = UIRoot.GetComponent<CanvasScaler>();
             Object.DontDestroyOnLoad(UI.gameObject);
+            ScreenToUI(new Vector3(Screen.width, Screen.height), out screenUI);
+        }
+
+        /// <summary>
+        /// 屏幕坐标转UI坐标
+        /// </summary>
+        public void ScreenToUI(Vector3 v3, out Vector2 v2)
+        {
+            v2 = Vector2.zero;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(RootRectTransform, v3, RootCanvas.worldCamera, out v2);
+            Debug.Log(v2);
         }
 
         /// <summary>
@@ -160,6 +180,25 @@ namespace LoveYouForever
                 panel.Show();
             }
             return panel as T;
+        }
+
+        /// <summary>
+        /// 动态加载UI预设体
+        /// </summary>
+        /// <param name="prefabName"></param>
+        /// <param name="parent"></param>
+        /// <param name="name"></param>
+        public GameObject LoadUIPrefab(string prefabName,Transform parent,string name = null)
+        {
+            GameObject obj = AssetManager.LoadPrefab(uiPrefabPath + prefabName);
+            obj.name = name != String.Empty ? name : prefabName;
+            RectTransform tr = obj.transform as RectTransform;
+            tr.SetParent(parent);
+            tr.localPosition = Vector3.zero;
+            tr.localScale = Vector3.one;
+            tr.offsetMax = Vector2.zero;
+            tr.offsetMin = Vector2.zero;
+            return obj;
         }
 
         /// <summary>

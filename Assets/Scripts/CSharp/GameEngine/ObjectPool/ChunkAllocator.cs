@@ -62,13 +62,31 @@ namespace LoveYouForever
         /// <param name="poolName"></param>
         /// <param name="resName"></param>
         /// <returns></returns>
-        public Object GetObj(string poolName, string resName)
+        public T GetObj<T>(string poolName, string resName)
+            where T : Object
         {
             if (!IsHavePool(poolName))
             {
-                return AssetManager.GetAsset<Object>(resName);
+                return AssetManager.GetAsset<T>(resName);
             }
-            return chunkList[poolName].GetObj();
+            return chunkList[poolName].GetObj() as T;
+        }
+
+        /// <summary>
+        /// 获取预设体对象
+        /// </summary>
+        /// <param name="poolName"></param>
+        /// <returns></returns>
+        public GameObject GetPrefab(string poolName, string resName, Transform parent = null)
+        {
+            GameObject go = !IsHavePool(poolName)
+                ? AssetManager.LoadPrefab(resName)
+                : chunkList[poolName].GetObj() as GameObject;
+            if(parent != null)
+                go.transform.SetParent(parent);
+            go.transform.localScale = Vector3.one;
+            go.transform.position = Vector3.zero;
+            return go;
         }
 
         /// <summary>

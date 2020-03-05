@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 2DLightGrayMaterial
   m_Shader: {fileID: 4800000, guid: 18d4233c7d266b94589091600f9b2c33, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA UNITY_UI_ALPHACLIP
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -38,7 +38,7 @@ Material:
     m_Floats:
     - _BluePercent: 1
     - _EnableExternalAlpha: 0
-    - _GrayOn: 1
+    - _GrayOn: 0
     - _GrayPercent: 1
     - _GreenPercent: 1
     - _RedPercent: 1

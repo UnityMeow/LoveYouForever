@@ -90,6 +90,10 @@ namespace LoveYouForever
             switch (showType)
             {
                 case ShowType.Fade:
+                    if (group == null)
+                    {
+                        group = gameObject.AddComponent<CanvasGroup>();
+                    }
                     group.DOFade(0f, 0f);
                     group.DOFade(1f, 5f).SetUpdate(true);
                     break;
@@ -105,8 +109,13 @@ namespace LoveYouForever
             {
                 case ShowType.Normal:
                     action?.Invoke();
+                    gameObject.SetActive(false);
                     break;
                 case ShowType.Fade:
+                    if (group == null)
+                    {
+                        group = gameObject.AddComponent<CanvasGroup>();
+                    }
                     group.DOFade(1f, 0f);
                     group.DOFade(0f, 1f).SetUpdate(true).OnComplete(() =>
                     {
