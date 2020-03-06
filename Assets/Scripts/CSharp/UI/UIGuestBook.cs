@@ -13,6 +13,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -40,6 +42,16 @@ namespace LoveYouForever
 		/// </summary>
 		private InputField inputField;
 
+		/// <summary>
+		/// 弹幕父物体
+		/// </summary>
+		private Transform textParent;
+
+		/// <summary>
+		/// 弹幕动画队列临时存放
+		/// </summary>
+		private List<Sequence> sequencesList = new List<Sequence>();
+
 		#region 输入框遮罩相关
 		private Vector2 maskOpen = new Vector2(500,70);
 		private Vector2 maskClose = new Vector2(0,70);
@@ -63,12 +75,58 @@ namespace LoveYouForever
 			inputField = GetControl<InputField>("InputField");
 			inputField.onEndEdit.AddListener(inputEnd);
 			EventManager.Instance.Add(EventType.InputSucceed,this,onEventInputSucceed);
+			textParent = GetGameObject("TextParent").transform;
+			AddEventTrigger("InputField",EventTriggerType.Select,onEventInputSelect);
+			AddEventTrigger("InputField",EventTriggerType.Deselect,onEventInputDeSelect);
 		}
 
 		public override void Show()
 		{
 			base.Show();
 			initText();
+		}
+
+		public override void Hide(UnityAction action = null)
+		{
+			base.Hide(action);
+			clearText();
+		}
+
+		
+		/// <summary>
+		/// 输入框选中
+		/// </summary>
+		/// <param name="data"></param>
+		private void onEventInputSelect(BaseEventData data)
+		{
+			inputField.placeholder.gameObject.SetActive(false);
+			Debug.Log("选中");
+		}
+		
+		/// <summary>
+		/// 输入框未选中
+		/// </summary>
+		/// <param name="data"></param>
+		private void onEventInputDeSelect(BaseEventData data)
+		{
+			Debug.Log("未选中");
+			inputField.placeholder.gameObject.SetActive(true);
+		}
+		
+		/// <summary>
+		/// 清空弹幕文本
+		/// </summary>
+		private void clearText()
+		{
+			for (int i = textParent.childCount - 1; i >= 0; i--)
+			{
+				GameObject.Destroy(textParent.GetChild(i).gameObject);
+			}
+			ChunkAllocator.Instance.ClearPool("GuestBookText");
+			foreach (var s in sequencesList)
+			{
+				s.Kill();
+			}
 		}
 
 		/// <summary>
@@ -93,7 +151,7 @@ namespace LoveYouForever
 		/// <param name="data"></param>
 		private Text creatText(GuestBookData data)
 		{
-			GameObject go = ChunkAllocator.Instance.GetPrefab("GuestBookText","UIPrefabs/GuestBookText",gameObject.transform);
+			GameObject go = ChunkAllocator.Instance.GetPrefab("GuestBookText","UIPrefabs/GuestBookText",textParent);
 			Text goText= go.GetComponent<Text>();
 			RectTransform rt = go.transform as RectTransform;
 			goText.text = data.text;
@@ -140,25 +198,30 @@ namespace LoveYouForever
 			// 第二段移动
 			float end = -UIManager.Instance.ScreenUI.x - text.preferredWidth * 0.5f;
 			float dis = end_1 - end;
-			
-			rt.DOLocalMoveX(end_1,dis_1 / UIDataGuestBook.Speed).
-				SetEase(Ease.Linear).OnComplete(() =>
-				{
-					if (UIDataGuestBook.GuestBookOn)
+			Sequence sequence = DOTween.Sequence();
+			sequence.Append(
+				rt.DOLocalMoveX(end_1,dis_1 / UIDataGuestBook.Speed)
+					.SetEase(Ease.Linear).OnComplete(() =>
 					{
-						Text _text = creatText(UIDataGuestBook.Instance.Datas[UIDataGuestBook.CurIndex]);
-						Vector2 _pos = setTextPos(_text, pos.y);
-						textMove(_text, _pos);
-						UIDataGuestBook.CurIndex++;
-						if (UIDataGuestBook.CurIndex >= UIDataGuestBook.Instance.Datas.Count - 1)
-							UIDataGuestBook.CurIndex = 0;
-						rt.DOLocalMoveX(end, dis / UIDataGuestBook.Speed).SetEase(Ease.Linear).OnComplete(() =>
+						if (UIDataGuestBook.GuestBookOn)
 						{
-							ChunkAllocator.Instance.Revert("GuestBookText", rt.gameObject);
-							rt.gameObject.SetActive(false);
-						});
-					}
-				});
+							Text _text = creatText(UIDataGuestBook.Instance.Datas[UIDataGuestBook.CurIndex]);
+							Vector2 _pos = setTextPos(_text, pos.y);
+							textMove(_text, _pos);
+							UIDataGuestBook.CurIndex++;
+							if (UIDataGuestBook.CurIndex >= UIDataGuestBook.Instance.Datas.Count - 1)
+								UIDataGuestBook.CurIndex = 0;
+						}
+					}));
+			sequence.Append(
+				rt.DOLocalMoveX(end, dis / UIDataGuestBook.Speed)
+					.SetEase(Ease.Linear).OnComplete(() =>
+					{
+						ChunkAllocator.Instance.Revert("GuestBookText", rt.gameObject);
+						rt.gameObject.SetActive(false);
+						sequencesList.Remove(sequence);
+					}));
+			sequencesList.Add(sequence);
 		}
 
 		/// <summary>
@@ -176,6 +239,7 @@ namespace LoveYouForever
 		/// <param name="text"></param>
 		private void inputEnd(string text)
 		{
+			Debug.Log("输入结束");
 			UIDataGuestBook.Instance.AddGuestBookData(text);
 		}
 
@@ -207,5 +271,6 @@ namespace LoveYouForever
 				maskOn = true;
 			}
 		}
+		
 	}
 }

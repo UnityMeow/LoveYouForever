@@ -103,6 +103,10 @@ namespace LoveYouForever
 					// 发送添加成功事件
 					EventManager.Instance.SendEvent(EventType.InputSucceed);
 				}
+				else
+				{
+					// TODO: 文本发送错误提示
+				}
 			}, null);
 		}
 	}
