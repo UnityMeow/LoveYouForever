@@ -63,24 +63,28 @@ namespace LoveYouForever
             starRight = (RectTransform)GetGameObject("star_02").transform;
             memento = (RectTransform)GetGameObject("memento").transform;
             guestBook = (RectTransform)GetGameObject("guestBook").transform;
-        }
-
-        public override void Show()
-        {
-            base.Show();
+            
+            GetControl<Button>("setting").onClick.AddListener(buttonSetting);
+            GetControl<Button>("memento").onClick.AddListener(buttonMemento);
+            GetControl<Button>("guestBook").onClick.AddListener(buttonGuestBook);
+            AddEventTrigger("startButton",EventTriggerType.PointerClick,buttonStart);
+            
+            ButtonAnim("setting", settingButton);
+            ButtonAnim("memento", memento);
+            ButtonAnim("guestBook", guestBook);
+            
             startText.DOScale(1.1f, 1.8f).SetLoops(-1,LoopType.Yoyo).SetEase(Ease.InOutQuad);
             var pos = settingButton.localPosition.y + 5;
             settingButton.DOLocalMoveY(pos,1.5f).SetLoops(-1,LoopType.Yoyo).SetEase(Ease.InOutQuad);
             titleImage.DOFade(0.45f, 1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutBounce);
             starLeft.DORotate(new Vector3(0, 0, 379.2f), 20f,RotateMode.FastBeyond360).SetLoops(-1,LoopType.Restart).SetEase(Ease.InSine);
             starRight.DORotate(new Vector3(0, 0, -79.2f), 20f,RotateMode.FastBeyond360).SetLoops(-1,LoopType.Restart).SetEase(Ease.OutQuad);
-            ButtonAnim("setting", settingButton);
-            ButtonAnim("memento", memento);
-            ButtonAnim("guestBook", guestBook);
-            GetControl<Button>("setting").onClick.AddListener(buttonSetting);
-            GetControl<Button>("memento").onClick.AddListener(buttonMemento);
-            GetControl<Button>("guestBook").onClick.AddListener(buttonGuestBook);
-            AddEventTrigger("startButton",EventTriggerType.PointerClick,buttonStart);
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            
         }
 
         /// <summary>
@@ -90,6 +94,7 @@ namespace LoveYouForever
         {
             Hide(() =>
             {
+                Debug.Log("发送游戏初始化事件");
                 EventManager.Instance.SendEvent(EventType.GameInit);
             });
         }

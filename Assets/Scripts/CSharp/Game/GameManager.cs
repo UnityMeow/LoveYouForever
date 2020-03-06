@@ -51,6 +51,7 @@ public class GameManager : InstanceNull<GameManager>
 
     public GameManager()
     {
+        Debug.Log("注册游戏初始事件");
         EventManager.Instance.Add(EventType.GameInit,this,onEventGameStart);
         EventManager.Instance.Add(EventType.GameRun,this,onEventGameRun);
     }
