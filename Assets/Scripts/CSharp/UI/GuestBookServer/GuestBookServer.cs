@@ -19,7 +19,7 @@ namespace LoveYouForever
 {
 	public class GuestBookServer : InstanceNull<GuestBookServer>
 	{
-		private readonly string baseURL = "http://localhost:8080";
+		private readonly string baseURL = "http://lyf.unitymeow.com";
 
         /// <summary>
         /// 字典里是正在加载的url和对应的AsyncOperation
@@ -65,6 +65,50 @@ namespace LoveYouForever
                     var result = JsonConvert.DeserializeObject<Result>(resultText);
                     onCompleted?.Invoke(result);
                 }, onError, body);
+        }
+        
+        /// <summary>
+        /// 删除弹幕数据
+        /// </summary>
+        /// <param name="removeData">删除数据</param>
+        /// <param name="onCompleted">删除成功回调</param>
+        /// <param name="onError">错误回调</param>
+        public void RemoveDanamku(
+            RemoveData removeData, 
+            Action<Result> onCompleted, 
+            Action<string, long, string> onError)
+        {
+            string body = JsonConvert.SerializeObject(removeData);
+            SendWebRequestText(
+                $"{baseURL}/loveyouforever/removeDanamku", 
+                resultText =>
+                {
+                    var result = JsonConvert.DeserializeObject<Result>(resultText);
+                    onCompleted?.Invoke(result);
+                },onError,
+                body);
+        }
+        
+        /// <summary>
+        /// 清空弹幕数据
+        /// </summary>
+        /// <param name="clearData">删除数据</param>
+        /// <param name="onCompleted">删除成功回调</param>
+        /// <param name="onError">错误回调</param>
+        public void ClearDanamku(
+            ClearData clearData, 
+            Action<Result> onCompleted, 
+            Action<string, long, string> onError)
+        {
+            string body = JsonConvert.SerializeObject(clearData);
+            SendWebRequestText(
+                $"{baseURL}/loveyouforever/clearDanamkus", 
+                resultText =>
+                {
+                    var result = JsonConvert.DeserializeObject<Result>(resultText);
+                    onCompleted?.Invoke(result);
+                },onError,
+                body);
         }
     
         /// <summary>

@@ -83,7 +83,8 @@ namespace LoveYouForever
 		public override void Show()
 		{
 			base.Show();
-			initText();
+			if (UIDataGuestBook.Instance.Datas.Count > 0)
+				initText();
 		}
 
 		public override void Hide(UnityAction action = null)

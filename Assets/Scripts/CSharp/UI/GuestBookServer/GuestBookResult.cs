@@ -7,6 +7,8 @@
 ** 描  述: 	
 *******************************************************************/
 #endregion
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,6 +58,43 @@ namespace LoveYouForever
 		public string status;
 	}
 	
+	/// <summary>
+	/// 移除留言板数据
+	/// </summary>
+	public class RemoveData
+	{
+		/// <summary>
+		/// 所在场景
+		/// </summary>
+		public string scene;
+		
+		/// <summary>
+		/// 弹幕文本
+		/// </summary>
+		public string text;
+		
+		/// <summary>
+		/// 密码
+		/// </summary>
+		public string password;
+	}
+
+	/// <summary>
+	/// 清空留言板数据
+	/// </summary>
+	public struct ClearData
+	{
+		/// <summary>
+		/// 所在场景
+		/// </summary>
+		public string scene;
+
+		/// <summary>
+		/// 密码
+		/// </summary>
+		public string password;
+	}
+
 	/// <summary>
 	/// 留言板数据集合
 	/// </summary>
