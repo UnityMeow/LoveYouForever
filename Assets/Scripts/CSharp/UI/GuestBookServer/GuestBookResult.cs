@@ -48,6 +48,11 @@ namespace LoveYouForever
 		/// 出现次数
 		/// </summary>
 		public int count;
+
+		/// <summary>
+		/// 是否显示提示框
+		/// </summary>
+		public bool onShow;
 	}
 	
 	public class Result

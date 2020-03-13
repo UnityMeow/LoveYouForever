@@ -55,7 +55,12 @@ namespace LoveYouForever
 		#region 输入框遮罩相关
 		private Vector2 maskOpen = new Vector2(500,70);
 		private Vector2 maskClose = new Vector2(0,70);
+		
+		/// <summary>
+		/// 输入框遮罩开关
+		/// </summary>
 		private bool maskOn;
+		
 		#endregion
 
 		public override void Init()
@@ -154,10 +159,20 @@ namespace LoveYouForever
 		{
 			GameObject go = ChunkAllocator.Instance.GetPrefab("GuestBookText","UIPrefabs/GuestBookText",textParent);
 			Text goText= go.GetComponent<Text>();
-			RectTransform rt = go.transform as RectTransform;
 			goText.text = data.text;
 			// 确定字号
 			goText.fontSize = data.count > 1 && goText.preferredWidth < 225 ? 60 : 30;
+			// 设置文字边框
+			var child = go.transform.GetChild(0) as RectTransform;
+			if (data.onShow)
+			{
+				child.sizeDelta = new Vector2(goText.preferredWidth + 20,goText.preferredHeight + 10);
+				child.gameObject.SetActive(true);
+			}
+			else
+			{
+				child.gameObject.SetActive(false);
+			}
 			return goText;
 		}
 
@@ -230,7 +245,7 @@ namespace LoveYouForever
 		/// </summary>
 		private void onEventInputSucceed()
 		{
-			UIDataGuestBook.Instance.Datas.Insert(UIDataGuestBook.CurIndex,new GuestBookData{text = inputField.text});
+			UIDataGuestBook.Instance.Datas.Insert(UIDataGuestBook.CurIndex,new GuestBookData{text = inputField.text,count = 0,onShow = true});
 			inputField.text = String.Empty;
 		}
 
