@@ -30,6 +30,7 @@ namespace LoveYouForever
                 new AssetLoader.AssetLoadConfig{type = typeof(Texture2D),Label = "AnimPic"},
                 new AssetLoader.AssetLoadConfig{type = typeof(TextAsset),Label = "AnimData"},
                 new AssetLoader.AssetLoadConfig{type = typeof(GameObject),Label = "Game"},
+                new AssetLoader.AssetLoadConfig{type = typeof(ScriptableObject),Label = "Configs"},
             });
             // 开始加载资源
             loader.StartLoad(onCompleted);
@@ -42,9 +43,12 @@ namespace LoveYouForever
 
         private void onCompleted()
         {
+            Debug.Log("资源加载成功");
             showType = ShowType.Fade;
             Hide(()=>EventManager.Instance.SendEvent(EventType.UIMain));
             GameManager.Instance.Init();
+            Debug.Log("Configs初始化");
+            ConfigsManager.Instance.Load();
         }
     }
 }

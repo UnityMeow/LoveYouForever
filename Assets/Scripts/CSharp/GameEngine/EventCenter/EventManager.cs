@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class EventManager : InstanceNull<EventManager>
+	public class EventManager : Single<EventManager>
 	{
 		/// <summary>
 		/// 事件监听器字典

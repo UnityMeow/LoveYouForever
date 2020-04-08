@@ -19,7 +19,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class GlobalMonoManager : InstanceMono<GlobalMonoManager>
+	public class GlobalMonoManager : SingleMono<GlobalMonoManager>
     {
         event CallBack eventUpdate;
         event CallBack eventFixedUpdate;

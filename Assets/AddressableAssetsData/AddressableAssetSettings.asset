@@ -72,6 +72,7 @@ MonoBehaviour:
     - AnimPic
     - AnimData
     - Game
+    - Configs
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 0e2653712cc9f3144a647bc80a196cdb, type: 2}

@@ -85,7 +85,7 @@ namespace LoveYouForever
             // 如果该资源未提前加载
             if (!handle.IsDone)
             {
-                throw new Exception("必须提前加载资源");
+                throw new Exception($"{key} - 必须提前加载资源");
             }
             
             return (T)handle.Result;

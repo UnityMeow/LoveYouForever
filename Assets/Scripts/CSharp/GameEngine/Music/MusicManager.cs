@@ -17,12 +17,12 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class MusicManager : InstanceNull<MusicManager>
+	public class MusicManager : Single<MusicManager>
     {
         string bgmPath = "";
         string soundPath = "";
-        string soundBagName = "";
-        string bgmBagName = "";
+        //string soundBagName = "";
+        //string bgmBagName = "";
         AudioSource bgmAS;
         Dictionary<string, AudioSource> soundList = new Dictionary<string, AudioSource>();
 

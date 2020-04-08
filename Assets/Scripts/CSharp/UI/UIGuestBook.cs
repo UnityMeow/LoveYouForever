@@ -78,6 +78,7 @@ namespace LoveYouForever
 			GetControl<Button>("ButtonBack").onClick.AddListener(buttonBack);
 			GetControl<Button>("ButtonInput").onClick.AddListener(buttonInput);
 			inputField = GetControl<InputField>("InputField");
+			// TODO: 输入结束
 			inputField.onEndEdit.AddListener(inputEnd);
 			EventManager.Instance.Add(EventType.InputSucceed,this,onEventInputSucceed);
 			textParent = GetGameObject("TextParent").transform;
@@ -207,14 +208,16 @@ namespace LoveYouForever
 		{
 			RectTransform rt = (RectTransform) text.transform;
 			rt.localPosition = pos;
-			// 第一段移动
+			// 第一段移动位置
 			float end_1 = UIManager.Instance.ScreenUI.x - text.preferredWidth * 0.5f;
 			float dis_1 = pos.x - end_1;
 			
-			// 第二段移动
+			// 第二段移动位置
 			float end = -UIManager.Instance.ScreenUI.x - text.preferredWidth * 0.5f;
 			float dis = end_1 - end;
+			
 			Sequence sequence = DOTween.Sequence();
+			// 第一段移动
 			sequence.Append(
 				rt.DOLocalMoveX(end_1,dis_1 / UIDataGuestBook.Speed)
 					.SetEase(Ease.Linear).OnComplete(() =>
@@ -229,6 +232,8 @@ namespace LoveYouForever
 								UIDataGuestBook.CurIndex = 0;
 						}
 					}));
+			
+			// 第二段移动
 			sequence.Append(
 				rt.DOLocalMoveX(end, dis / UIDataGuestBook.Speed)
 					.SetEase(Ease.Linear).OnComplete(() =>

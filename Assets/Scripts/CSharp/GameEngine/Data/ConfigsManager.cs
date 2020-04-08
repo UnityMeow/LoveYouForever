@@ -16,7 +16,7 @@ namespace LoveYouForever
     /// <summary>
     /// 配置文件管理
     /// </summary>
-	public class ConfigsManager : InstanceNull<ConfigsManager>
+	public class ConfigsManager : Single<ConfigsManager>
     {
         /// <summary>
         /// 配置类型
@@ -24,6 +24,7 @@ namespace LoveYouForever
         public enum Type
         {
             UIDataMain,
+            TestData,
         }
 
         private Dictionary<Type, ConfigsBase> configsDic = new Dictionary<Type, ConfigsBase>();
@@ -34,7 +35,7 @@ namespace LoveYouForever
         public void Load()
         {
             LoadConfig<UIDataMainConfigs>("UIDataMain",Type.UIDataMain);
-            //LoadConfig<UIDataMainConfigs>("UIDataMain", Type.UIDataMain);
+            LoadConfig<TestDataConfigs>("TestData", Type.TestData);
             //LoadConfig<UIDataMainConfigs>("UIDataMain", Type.UIDataMain);
         }
 
@@ -48,6 +49,7 @@ namespace LoveYouForever
             {
                 return configsDic[type] as T;
             }
+            Debug.Log( $"{type}资源获取失败");
             return null;
         }
 
@@ -60,10 +62,9 @@ namespace LoveYouForever
         private void LoadConfig<T>(string name, Type type)
             where T : ConfigsBase
         {
-            var config = AssetManager.GetAsset<T>(name);
+            var config = AssetManager.GetAsset<ScriptableObject>("Configs/" + name + ".asset") as T;
             configsDic.Add(type, config);
         }
-
-
+        
 	}
 }

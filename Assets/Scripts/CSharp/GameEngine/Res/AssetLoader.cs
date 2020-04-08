@@ -109,7 +109,7 @@ namespace LoveYouForever
             // 加载失败
             if (handle.Status == AsyncOperationStatus.Failed)
             {
-                throw new Exception("资源加载失败");
+                throw new Exception($"资源加载失败{assetLoadConfigs[curLoadIndex].Label}");
             }
 
             // 是否加载完成

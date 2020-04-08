@@ -40,6 +40,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     m_mainAssetType: 
+  - m_GUID: 38de630106591c54bb7b3e21c98d863f
+    m_Address: Configs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    m_mainAssetType: 
   - m_GUID: 46988f095752ef84da865fdeb501e979
     m_Address: 123
     m_ReadOnly: 0

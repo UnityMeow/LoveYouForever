@@ -9,11 +9,12 @@
 #endregion
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using LoveYouForever;
 using UnityEngine;
 using EventType = LoveYouForever.EventType;
 
-public class GameManager : InstanceNull<GameManager>
+public class GameManager : Single<GameManager>
 {
     public enum GameState
     {
@@ -43,6 +44,11 @@ public class GameManager : InstanceNull<GameManager>
     /// 当前游戏状态
     /// </summary>
     public GameState CurState;
+
+    /// <summary>
+    /// 游戏画面主相机
+    /// </summary>
+    public Camera MainCamera;
 
     /// <summary>
     /// 当前游戏数据
@@ -87,6 +93,15 @@ public class GameManager : InstanceNull<GameManager>
     {
         CurState = GameState.Run;
         EventManager.Instance.SendEvent(EventType.UIGame);
+        
+    }
+
+
+    public void CameraShake(float duration = 0.25f)
+    {
+        MainCamera.DOShakePosition(duration,fadeOut:false,
+            strength:0.08f,
+            vibrato:30).SetEase(Ease.InQuint);
     }
 
 }

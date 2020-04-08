@@ -15,10 +15,13 @@ namespace LoveYouForever
 {
 	public class Bootstrap : GameEntry
     {
+        public Camera MainCamera;
         protected override void OnInit()
         {
             base.OnInit();
-            //注册信息
+            // 注册信息
+            // 初始化游戏主相机
+            GameManager.Instance.MainCamera = MainCamera;
         }
 
         protected override void OnStart()

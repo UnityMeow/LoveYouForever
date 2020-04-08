@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-    public class AnimSpriteManager : InstanceNull<AnimSpriteManager>
+    public class AnimSpriteManager : Single<AnimSpriteManager>
     {
         /// <summary>
         /// 图片数据集合

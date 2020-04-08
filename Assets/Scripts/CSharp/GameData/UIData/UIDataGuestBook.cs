@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class UIDataGuestBook : InstanceNull<UIDataGuestBook>
+	public class UIDataGuestBook : Single<UIDataGuestBook>
 	{
 		/// <summary>
 		/// 留言板数据
@@ -67,7 +67,7 @@ namespace LoveYouForever
 		private void GetGuestBookData()
 		{
 			guestBookDatas.Clear();
-			GuestBookServer.Instance.ListCountedDanmakus(
+			GuestBookClient.Instance.ListCountedDanmakus(
 				result =>
 				{
 					if (result.status == "ok")
@@ -96,7 +96,7 @@ namespace LoveYouForever
 			commonData.text = text;
 			commonData.time = 0;
 			commonData.scene = "welcome";
-			GuestBookServer.Instance.AddDanamku(commonData, result =>
+			GuestBookClient.Instance.AddDanamku(commonData, result =>
 			{
 				if (result.status == "ok")
 				{
@@ -106,6 +106,7 @@ namespace LoveYouForever
 				else
 				{
 					// TODO: 文本发送错误提示
+					Debug.Log("留言板数据添加有误");
 				}
 			}, null);
 		}

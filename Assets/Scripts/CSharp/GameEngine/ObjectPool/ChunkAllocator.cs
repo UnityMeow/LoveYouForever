@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace LoveYouForever
 {
-	public class ChunkAllocator : InstanceNull<ChunkAllocator>
+	public class ChunkAllocator : Single<ChunkAllocator>
     {
         Dictionary<string, Chunk> chunkList;
         public ChunkAllocator()

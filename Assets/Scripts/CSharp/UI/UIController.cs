@@ -45,7 +45,7 @@ namespace LoveYouForever
 		UIMemento,
 	}
 
-	public class UIController : InstanceNull<UIController>
+	public class UIController : Single<UIController>
 	{
 		
 		/// <summary>

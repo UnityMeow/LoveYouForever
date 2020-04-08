@@ -10,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LoveYouForever
 {
@@ -19,6 +20,7 @@ namespace LoveYouForever
 		{
 			base.Init();
 			showType = ShowType.Normal;
+			GetControl<Button>("ButtonX").onClick.AddListener(()=>GameManager.Instance.CameraShake());
 		}
 	}
 }

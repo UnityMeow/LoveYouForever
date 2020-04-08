@@ -20,7 +20,7 @@ using Object = UnityEngine.Object;
 
 namespace LoveYouForever
 {
-    public class UIManager : InstanceNull<UIManager>
+    public class UIManager : Single<UIManager>
     {
         /// <summary>
         /// UI层级
