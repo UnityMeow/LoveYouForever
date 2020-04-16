@@ -50,6 +50,7 @@ namespace LoveYouForever
         private void onCompleted()
         {
             UIController.Instance.Init();
+            InputController.Instance.Init();
             Debug.Log("准备显示Loading界面");
             EventManager.Instance.SendEvent(EventType.UILoading);
         }

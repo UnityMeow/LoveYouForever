@@ -19,7 +19,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 namespace LoveYouForever
 {
     //事件中心委托回调
-    public delegate void EventCallBack();
+    public delegate void EventCallBack(object eventData = null);
     //无参数委托回调
     public delegate void CallBack();
     /// <summary>

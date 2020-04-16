@@ -1,82 +1,99 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LoveYouForever
 {
+    
+    
     public class BackgroundController: Single<BackgroundController>
     {
-        /// <summary>
-        /// 移动速度
-        /// </summary>
-        private float speed = 0;
+        private struct BGData
+        {
+            /// <summary>
+            /// 速度
+            /// </summary>
+            public float Speed;
 
-        /// <summary>
-        /// 移动方向
-        /// </summary>
-        private Vector2 direction;
+            /// <summary>
+            /// 图片名
+            /// </summary>
+            public string ImageName;
 
-        /// <summary>
-        /// 重置位置
-        /// </summary>
-        private Vector2 resetPos;
+            /// <summary>
+            /// 图片宽
+            /// </summary>
+            public float Width;
+            
+            /// <summary>
+            /// 路径
+            /// </summary>
+            public string Path;
+            
+            /// <summary>
+            /// 重置位置
+            /// </summary>
+            public Vector2 ResetPos;
 
-        /// <summary>
-        /// 图片宽
-        /// </summary>
-        private float width;
-
-        /// <summary>
-        /// 当前图片名
-        /// </summary>
-        private string curImageName;
+            /// <summary>
+            /// 背景
+            /// </summary>
+            public Transform[] Background;
+        }
         
-        /// <summary>
-        /// 背景
-        /// </summary>
-        private Transform[] background = new Transform[2];
-
         public GameObject GO;
+
+        private BGData[] backgroundData =
+        {
+            new BGData{Speed = 2.8f,ImageName = "Road", Path = "TestGameScene/Background/Third/", Background = new Transform[3]}, 
+            new BGData{Speed = 0.8f,ImageName = "Mountain", Path = "TestGameScene/Background/First/", Background = new Transform[3]}, 
+            new BGData{Speed = 1.2f,ImageName = "Cloud", Path = "TestGameScene/Background/First/", Background = new Transform[3]}, 
+            new BGData{Speed = 1.7f,ImageName = "Tree", Path = "TestGameScene/Background/Second/", Background = new Transform[3]}, 
+            new BGData{Speed = 1.7f,ImageName = "Cake", Path = "TestGameScene/Background/Second/", Background = new Transform[3]}, 
+        };
 
         /// <summary>
         /// 初始化
         /// </summary>
         public void Init()
         {
-            GO = GameObject.Find("TestGameScene/Background");
-            for (int i = 0; i < background.Length; i++)
+            for (int i = 0; i < backgroundData.Length; i++)
             {
-                background[i] = GO.transform.GetChild(i);
-            }
-            
-            direction = Vector2.left;
-            
-            width = background[0].GetComponent<BoxCollider2D>().bounds.size.x;
-            
-            resetPos = new Vector2(width,0);
-            
-            // 初始化位置
-            for (int i = 0; i < background.Length; i++)
-            {
-                background[i].localPosition = new Vector3(i * width,0,0);
+                GO = GameObject.Find(backgroundData[i].Path + backgroundData[i].ImageName);
+                for (int j = 0; j < backgroundData[i].Background.Length; j++)
+                {
+                    backgroundData[i].Background[j] = GO.transform.GetChild(j);
+                }
+                backgroundData[i].Width = backgroundData[i].Background[0].GetComponent<BoxCollider2D>().bounds.size.x;
+                backgroundData[i].ResetPos = 
+                    new Vector2(backgroundData[i].Width * (backgroundData[i].Background.Length - 1),0);
+                for (int j = 0; j < backgroundData[i].Background.Length; j++)
+                {
+                    backgroundData[i].Background[j].localPosition = new Vector3(j * backgroundData[i].Width,0,0);
+                    Debug.Log(backgroundData[i].Background[j].localPosition);
+                }
             }
 
             EventManager.Instance.Add(EventType.Season,this,onEventChange);
-            // TODO: 待修改 后期直接在按键触发
-            GlobalMonoManager.Instance.AddFixedUpdateListener(Move);
+            // TODO: 待修改 由英雄移动脚本来控制
+            EventManager.Instance.Add(EventType.HeroMove,this,Move);
         }
 
         /// <summary>
         /// 背景移动
         /// </summary>
-        public void Move()
+        public void Move(object data)
         {
-            for (int i = 0; i < 2; i++)
+            for (int j = 0; j < backgroundData.Length; j++)
             {
-                background[i].Translate(speed * Time.deltaTime * direction);
-                if (background[i].localPosition.x <= -width)
+                for (int i = 0; i < backgroundData[j].Background.Length; i++)
                 {
-                    background[i].localPosition = resetPos + (speed * Time.deltaTime * direction);
+                    backgroundData[j].Background[i].Translate(backgroundData[j].Speed * Time.deltaTime * Vector2.left);
+                    if (backgroundData[j].Background[i].localPosition.x <= -backgroundData[j].Width)
+                    {
+                        backgroundData[j].Background[i].localPosition = backgroundData[j].ResetPos + (backgroundData[j].Speed * Time.deltaTime * Vector2.left);
+                    }
                 }
             }
         }
@@ -84,9 +101,9 @@ namespace LoveYouForever
         /// <summary>
         /// 背景切换
         /// </summary>
-        public void onEventChange()
+        public void onEventChange(object eventData)
         {
-
+            
         }
 
     }

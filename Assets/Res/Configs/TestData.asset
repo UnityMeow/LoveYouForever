@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3f5d3fbab23fc438b5fb8ee6752793, type: 3}
   m_Name: TestData
   m_EditorClassIdentifier: 
-  TestInt1: 20
+  TestInt1: 0
   TestInt2: 0
   TestInt3: 0
   TestInt4: 0
   TestInt5: 0
-  TestFloat1: 0.5
-  TestFloat2: 90
+  TestFloat1: 0
+  TestFloat2: 0
   TestFloat3: 0
   TestFloat4: 0
   TestFloat5: 0

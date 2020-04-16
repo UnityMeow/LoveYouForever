@@ -51,7 +51,7 @@ namespace LoveYouForever
 		/// 发送事件
 		/// </summary>
 		/// <param name="eventType"></param>
-		public void SendEvent(EventType eventType)
+		public void SendEvent(EventType eventType,object eventData = null)
 		{
 			if (eventListenerList.ContainsKey(eventType))
 			{
@@ -59,7 +59,7 @@ namespace LoveYouForever
 				List<EventListener> listenerList = eventListenerList[eventType];
 				for (int i = 0; i < listenerList.Count; i++)
 				{
-					listenerList[i]?.CallBack();
+					listenerList[i]?.CallBack(eventData);
 				}
 			}
 		}

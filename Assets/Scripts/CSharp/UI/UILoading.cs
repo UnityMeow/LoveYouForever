@@ -47,8 +47,8 @@ namespace LoveYouForever
             showType = ShowType.Fade;
             Hide(()=>EventManager.Instance.SendEvent(EventType.UIMain));
             GameManager.Instance.Init();
+            ConfigsManager.Instance.Init();
             Debug.Log("Configs初始化");
-            ConfigsManager.Instance.Load();
         }
     }
 }

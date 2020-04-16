@@ -32,7 +32,7 @@ namespace LoveYouForever
         /// <summary>
         /// 加载所有配置文件
         /// </summary>
-        public void Load()
+        public void Init()
         {
             LoadConfig<UIDataMainConfigs>("UIDataMain",Type.UIDataMain);
             LoadConfig<TestDataConfigs>("TestData", Type.TestData);

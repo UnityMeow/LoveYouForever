@@ -65,46 +65,46 @@ namespace LoveYouForever
 			EventManager.Instance.Add(EventType.GuestBookData,this,onEventGuestBookData);
 		}
 
-		private void onEventGuestBookData()
+		private void onEventGuestBookData(object eventData)
 		{
 			UIDataGuestBook.Instance.Init();
 		}
 
-		private void onEventUILoading()
+		private void onEventUILoading(object eventData)
 		{
 			CurState = UIState.UILoading;
 			UIManager.Instance.ShowPanel<UILoading>("LoadingUI","LoadingUI");
 		}
 		
-		private void onEventUIMain()
+		private void onEventUIMain(object eventData)
 		{
 			CurState = UIState.UIMain;
 			UIManager.Instance.ShowPanel<UIMain>("MainUI", "MainUI");
 		}
 		
-		private void onEventUIGame()
+		private void onEventUIGame(object eventData)
 		{
 			CurState = UIState.UIGame;
 			UIManager.Instance.ShowPanel<UIGame>("GameUI", "GameUI");
 		}
 		
-		private void onEventUIGuestBook()
+		private void onEventUIGuestBook(object eventData)
 		{
 			CurState = UIState.UIGuestBook;
 			UIManager.Instance.ShowPanel<UIGuestBook>("GuestBookUI", "GuestBookUI");
 		}
 		
-		private void onEventUISetting()
+		private void onEventUISetting(object eventData)
 		{
 			CurState = UIState.UISetting;
 		}
 		
-		private void onEventUIPause()
+		private void onEventUIPause(object eventData)
 		{
 			CurState = UIState.UIPause;
 		}
 		
-		private void onEventUIMemento()
+		private void onEventUIMemento(object eventData)
 		{
 			CurState = UIState.UIMemento;
 		}

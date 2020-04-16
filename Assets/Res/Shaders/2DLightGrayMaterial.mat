@@ -39,7 +39,7 @@ Material:
     - _BluePercent: 1
     - _EnableExternalAlpha: 0
     - _GrayOn: 1
-    - _GrayPercent: 1
+    - _GrayPercent: 0
     - _GreenPercent: 1
     - _RedPercent: 1
     m_Colors:

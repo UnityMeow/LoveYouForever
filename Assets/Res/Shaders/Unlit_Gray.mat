@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _Delta: 0.001
     - _GrayOn: 1
-    - _Grayscale: 1
+    - _Grayscale: 0
     - _Poseterize: 0
     - _PosterizationCount: 8
     - _Raw: 0

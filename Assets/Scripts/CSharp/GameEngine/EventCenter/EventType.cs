@@ -36,6 +36,10 @@ namespace LoveYouForever
 		/// </summary>
 		Season = 10,
 		
+		
+		HeroMove = 20,
+		
+		
 		/// <summary>
 		/// 加载界面
 		/// </summary>

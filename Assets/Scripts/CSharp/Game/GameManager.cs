@@ -60,18 +60,22 @@ public class GameManager : Single<GameManager>
         Debug.Log("注册游戏初始事件");
         EventManager.Instance.Add(EventType.GameInit,this,onEventGameStart);
         EventManager.Instance.Add(EventType.GameRun,this,onEventGameRun);
+        CurData = new GameData();
     }
 
+    
+    /// <summary>
+    /// 暂时保留
+    /// </summary>
     public void Init()
     {
-        CurData = new GameData();
     }
     
 
     /// <summary>
     /// 游戏启动
     /// </summary>
-    private void onEventGameStart()
+    private void onEventGameStart(object eventData)
     {
         Debug.Log("游戏启动");
         CurState = GameState.Init;
@@ -89,7 +93,7 @@ public class GameManager : Single<GameManager>
     /// <summary>
     /// 游戏运行
     /// </summary>
-    private void onEventGameRun()
+    private void onEventGameRun(object eventData)
     {
         CurState = GameState.Run;
         EventManager.Instance.SendEvent(EventType.UIGame);

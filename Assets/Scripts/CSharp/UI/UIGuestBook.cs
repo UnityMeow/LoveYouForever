@@ -248,7 +248,7 @@ namespace LoveYouForever
 		/// <summary>
 		/// 弹幕输入成功回调
 		/// </summary>
-		private void onEventInputSucceed()
+		private void onEventInputSucceed(object eventData)
 		{
 			UIDataGuestBook.Instance.Datas.Insert(UIDataGuestBook.CurIndex,new GuestBookData{text = inputField.text,count = 0,onShow = true});
 			inputField.text = String.Empty;
